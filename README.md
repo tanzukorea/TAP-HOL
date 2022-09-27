@@ -15,7 +15,6 @@ Tanzu Application Platform Hands-On-Labs 페이지 입니다.
 ## 0. 사전 준비
 - DNS Server
 - Avi Load Balancer
-- [Jumpbox 다운로드](https://onevmw.sharepoint.com/:f:/r/teams/TAPHOLWorkshop/Shared%20Documents/General/jumpbox?csf=1&web=1&e=1Zi1TL) :  Harbor 및 설치 관련 이미지가(TKG,TAP) 포함된 점프박스 VM
 - [Jumpbox 준비 및 TKG 설치하기](./tap/jumpbox-prepare.md)
 
 ## 1. TAP 설치하기
