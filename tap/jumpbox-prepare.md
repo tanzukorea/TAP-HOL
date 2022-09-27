@@ -19,13 +19,12 @@ CLI로 변경할 경우에는 아래의 주소에 있는 파일을 변경합니�
 sudo service network-manager restart
 ```
 
-5. jumpbox에 접속
-jumpbox에 있는 계정은 root와 tap 계정이고 비밀번호는 모두 VMware1! 입니다.
+5. jumpbox에 접속<br>
+jumpbox에 있는 계정은 root와 tap 계정이고 비밀번호는 모두 VMware1! 입니다.<br>
 ``` ssh root@10.220.58.99 ```
 
-6. DHCP서버 수정
+6. DHCP서버 수정<br>
 현재의 환경에 맞도록 dhcp range를 수정합니다.
-
 ```
 subnet 172.20.22.0 netmask 255.255.255.0 {
   range 172.20.22.20 172.20.22.100;
@@ -37,16 +36,14 @@ subnet 172.20.22.0 netmask 255.255.255.0 {
   max-lease-time 7200;
 }
 ```
-7. DHCP 서버 재기동
-
+7. DHCP 서버 재기동<br>
 ```
 systemctl restart isc-dhcp-server.service
 systemctl status isc-dhcp-server.service
 ```
 dhcp server가 active인 것을 확인합니다.
 
-8. Harbor 기동
-
+8. Harbor 기동<br>
 ```
 cd /tanzu/harbor
 docker-compose up -d
@@ -70,8 +67,7 @@ cp tkr_overlay.lib.yaml ~/.config/tanzu/tkg/providers/ytt/03_customizations/01_t
 ```
 
 2. TKG BaseOS 이미지 다운로드<br>
-[TKG Download Page](https://customerconnect.vmware.com/en/downloads/details?downloadGroup=TKG-154&productId=988&rPId=93384)
-
+[TKG Download Page](https://customerconnect.vmware.com/en/downloads/details?downloadGroup=TKG-154&productId=988&rPId=93384)<br>
 TKG 1.5.4를 선택하고 Photon v3 Kubernetes v1.22.9 OVA 를 다운로드 합니다.
 
 3. TKG BaseOS 이미지 vCenter에 업로드<br>
@@ -96,7 +92,7 @@ control plane endpoint주소는 dhcp주소와 겹치지 않도록 네트워크 �
 
 7. LB가 필요하기 때문에 AVI와 설치시에 연동을 해도 됩니다.<br>
 이 Lab에서는 TKG 클러스터를 모두 설치한 후에 연동하는 방식으로 진행합니다.
-Management-Cluster가 정상적으로 설치되면 다음의 명령어로 kubeconfig를 얻습니다.
+Management Cluster가 정상적으로 설치되면 다음의 명령어로 kubeconfig를 얻습니다.
 ```
 tanzu mc  kubeconfig get --admin
 kubectl config use-context mgmt1-admin@mgmt1
@@ -108,7 +104,7 @@ TAP는 TKG Workload Cluster 위에 추가 패키지의 형태로 설치가 됩�
 ```
 cd ~/.config/tanzu/tkg/clusterconfigs 
 ```
-로 이동해서 방금만든 yaml파일을 복사해서 새로운 파일을 만듭니다.
+Management Cluster 생성시에 만들어진 yaml파일을 복사해서 새로운 파일을 만듭니다.
 
 ```
 tap@harbor:~/.config/tanzu/tkg/clusterconfigs$ cp vdwmd173jo.yaml cluster1.yaml
@@ -117,3 +113,55 @@ CLUSTER_NAME와 VSPHERE_CONTROL_PLANE_ENDPOINT 를 적절히 변경합니다.
 
 tap@harbor:~/.config/tanzu/tkg/clusterconfigs$ tanzu cluster create --file cluster1.yaml -v 9
 ```
+
+9. 설치 확인
+```
+tanzu cluster kubeconfig get 클러스터명 --admin
+kubectl config use-context 클러스트명-admin@클러스터명
+```
+
+```
+kubectl get pods -A
+
+NAMESPACE      NAME                                                     READY   STATUS    RESTARTS      AGE
+kube-system    antrea-agent-447jk                                       2/2     Running   0             35m
+kube-system    antrea-agent-kjdq5                                       2/2     Running   0             35m
+kube-system    antrea-controller-868b865c59-npbqc                       1/1     Running   0             35m
+kube-system    coredns-d457ffd95-9qgv5                                  1/1     Running   0             36m
+kube-system    coredns-d457ffd95-br9q2                                  1/1     Running   0             36m
+kube-system    etcd-cluster1-control-plane-cf8q9                        1/1     Running   0             37m
+kube-system    kube-apiserver-cluster1-control-plane-cf8q9              1/1     Running   0             37m
+kube-system    kube-controller-manager-cluster1-control-plane-cf8q9     1/1     Running   0             37m
+kube-system    kube-proxy-74fcp                                         1/1     Running   0             36m
+kube-system    kube-proxy-jj7k8                                         1/1     Running   0             37m
+kube-system    kube-scheduler-cluster1-control-plane-cf8q9              1/1     Running   0             37m
+kube-system    kube-vip-cluster1-control-plane-cf8q9                    1/1     Running   0             37m
+kube-system    metrics-server-5fd77695b5-mdtfc                          1/1     Running   0             35m
+kube-system    vsphere-cloud-controller-manager-blnqn                   1/1     Running   0             34m
+kube-system    vsphere-csi-controller-6449695bd4-kgt7l                  6/6     Running   0             35m
+kube-system    vsphere-csi-node-kg7rd                                   3/3     Running   5 (33m ago)   35m
+kube-system    vsphere-csi-node-xj8ds                                   3/3     Running   5 (33m ago)   35m
+tanzu-system   secretgen-controller-5c8fc4b9f7-x8z8q                    1/1     Running   0             35m
+tkg-system     kapp-controller-7886988d97-6dnpc                         1/1     Running   0             36m
+tkg-system     tanzu-capabilities-controller-manager-7b5d47b5f4-d2z82   1/1     Running   0             36m
+```
+
+
+10. Avi 연동
+tap 계정의 home에 avi 폴더가 있습니다.
+./avi/ako/로 이동한 후 다음의 두 파일을 수정합니다.
+install-tanzu-inst.sh : AVI의 controller IP와 username, password 를 입력합니다.
+values-tap.yaml 에서는 
+NetworkSettings 부분과 ControllerSettings 부분을 avi의 설정에 맞게 변경합니다.
+
+./install-tanzu-inst.sh 를 실행해서 현재 Cluster에 ako를 설치합니다.
+
+kubectl get pods -A 를 해서 ako-0 pod가 새롭게 생성된 것을 확인할 수 있습니다.
+```
+tap@harbor:~/avi/ako$ kubectl get pods -A
+NAMESPACE      NAME                                                     READY   STATUS    RESTARTS      AGE
+avi-system     ako-0                                                    1/1     Running   0             8s
+...
+```
+
+설치가 모두 정상적으로 끝났습니다. 준비가 완료되었습니다.
