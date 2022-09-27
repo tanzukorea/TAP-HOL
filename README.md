@@ -9,6 +9,8 @@ Tanzu Application Platform Hands-On-Labs 페이지 입니다.
 
 ## 0. 사전 준비
 - Kubernetes Cluster
+  - Kubernetes v1.22 or v1.23 이상 필요
+  - AKS / EKS / GKE / Minikube / TKGm / TKGs (vSphere with Tanzu v7.0 U3a)
 - Tanzu Application Platform
   - [설치 방법](https://github.com/tanzukorea/tanzu-install)
 
