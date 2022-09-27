@@ -19,7 +19,7 @@ Tanzu Application Platform Hands-On-Labs 페이지 입니다.
 
 ## 1. TAP 설치하기
 - Tanzu Application Platform
-  - [설치 방법](https://github.com/tanzukorea/tanzu-install/blob/main/tap/airgapped/installation-on-vsphere.md)
+  - [설치 방법](./install/install-on-vsphere-hol.md)
 
 ## 1. TAP 둘러보기
 TAP GUI를 둘러보며 기능을 알아봅니다.
