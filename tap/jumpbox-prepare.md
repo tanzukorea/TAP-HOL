@@ -38,13 +38,17 @@ subnet 172.20.22.0 netmask 255.255.255.0 {
 }
 ```
 1. DHCP 서버 재기동
+```
 systemctl restart isc-dhcp-server.service
 systemctl status isc-dhcp-server.service
+```
 dhcp server가 active인 것을 확인합니다.
 
 1. Harbor 기동
+```
 cd /tanzu/harbor
 docker-compose up -d
+```
 
 기존에 운영 중인 DNS서버에 harbor.tanzukr.com를 등록 합니다.
 윈도우 DNS서버가 없는 경우 다음의 방법으로 bind9으로 설치하셔도 됩니다.
@@ -52,15 +56,16 @@ docker-compose up -d
 
 ### TKG 설치하기
 1. TKG 설치 준비
+```
 su - tap
 cd dns
 vi vsphere-overlay.yaml
 172.20.22.10   harbor.tanzukr.com 부분을 새로 할당한 jumpbox ip를 입력합니다.
 cp vsphere-overlay.yaml /home/tap/.config/tanzu/tkg/providers/infrastructure-vsphere/ytt
-
 vi tkr_overlay.lib.yaml
 172.20.22.10   harbor.tanzukr.com 부분을 새로 할당한 jumpbox ip를 입력합니다.
 cp tkr_overlay.lib.yaml ~/.config/tanzu/tkg/providers/ytt/03_customizations/01_tkr/tkr_overlay.lib.yaml
+```
 
 1. TKG BaseOS 이미지 다운로드
 [TKG Download Page](https://customerconnect.vmware.com/en/downloads/details?downloadGroup=TKG-154&productId=988&rPId=93384)
@@ -72,7 +77,10 @@ photon-3-kube-v1.22.9+vmware.1-tkg.1-06852a87cc9526f5368519a709525c68.ova
 
 1. TKG Mgmt Cluster 생성
 tap 계정으로 다음 명령어를 실행합니다.
+```
 tanzu mc create --ui -b 0.0.0.0:9090 
+```
+
 1. TKG 설치 UI 진행
 TKG 설치 UI를 통해 TKG를 설치합니다. 
 설치는 vSphere with Tanzu(TKGs) 가 아니고 TKGm으로 설치를 진행하셔야 합니다.
@@ -86,15 +94,23 @@ control plane endpoint주소는 dhcp주소와 겹치지 않도록 네트워크 �
 1. LB가 필요하기 때문에 AVI와 설치시에 연동을 해도 됩니다. 이 Lab에서는 TKG 클러스터를 모두 설치한 후에 연동하는 방식으로 진행합니다.
 
 Management-Cluster가 정상적으로 설치되면 다음의 명령어로 kubeconfig를 얻습니다.
+```
 tanzu mc  kubeconfig get --admin
 kubectl config use-context mgmt1-admin@mgmt1
+```
 
 1. TKG Workload Cluster 생성
 TAP는 TKG Workload Cluster 위에 추가 패키지의 형태로 설치가 됩니다.
 이제 TAP를 설치할 TKG Cluster를 하나 생성해보겠습니다.
-cd ~/.config/tanzu/tkg/clusterconfigs 로 이동해서 방금만든 yaml파일을 복사해서 새로운 파일을 만듭니다.
+```
+cd ~/.config/tanzu/tkg/clusterconfigs 
+```
+로 이동해서 방금만든 yaml파일을 복사해서 새로운 파일을 만듭니다.
+
+```
 tap@harbor:~/.config/tanzu/tkg/clusterconfigs$ cp vdwmd173jo.yaml cluster1.yaml
 tap@harbor:~/.config/tanzu/tkg/clusterconfigs$ vi cluster1.yaml
 CLUSTER_NAME와 VSPHERE_CONTROL_PLANE_ENDPOINT 를 적절히 변경합니다.
 
 tap@harbor:~/.config/tanzu/tkg/clusterconfigs$ tanzu cluster create --file cluster1.yaml -v 9
+```
