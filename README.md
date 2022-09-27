@@ -18,8 +18,8 @@ Tanzu Application Platform Hands-On-Labs 페이지 입니다.
 - [Jumpbox 준비 및 TKG 설치하기](./tap/jumpbox-prepare.md)
 
 ## 1. TAP 설치하기
-- Tanzu Application Platform
-  - [설치 방법](./install/install-on-vsphere-hol.md)
+- [TAP 설치](./install/install-on-vsphere-hol.md)
+- [Developer namespace 설정](./install/dev-namespace.md)
 
 ## 1. TAP 둘러보기
 TAP GUI를 둘러보며 기능을 알아봅니다.
