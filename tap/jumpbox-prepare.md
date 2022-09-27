@@ -14,16 +14,19 @@
 네트워크 설정으로 들어가서 IP와 DNS를 현재의 환경에 맞게 변경합니다.
 DNS서버는 비워두고 Automatic으로 합니다. 네트워크를 비활성화 했다가 다시 활성화 합니다.
 CLI로 변경할 경우에는 아래의 주소에 있는 파일을 변경합니다.
+```
 /etc/NetworkManager/system-connections/
 sudo service network-manager restart
+```
 
 1. jumpbox에 접속
 jumpbox에 있는 계정은 root와 tap 계정이고 비밀번호는 모두 VMware1! 입니다.
-ssh root@10.220.58.99
+``` ssh root@10.220.58.99 ```
 
 1. DHCP서버 수정
 현재의 환경에 맞도록 dhcp range를 수정합니다.
 
+```
 subnet 172.20.22.0 netmask 255.255.255.0 {
   range 172.20.22.20 172.20.22.100;
   option domain-name-servers 172.10.0.8;
@@ -33,6 +36,7 @@ subnet 172.20.22.0 netmask 255.255.255.0 {
   default-lease-time 600;
   max-lease-time 7200;
 }
+```
 1. DHCP 서버 재기동
 systemctl restart isc-dhcp-server.service
 systemctl status isc-dhcp-server.service
