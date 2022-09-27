@@ -18,9 +18,10 @@ DNS서버가 없는 경우 다음의 방법으로 bind9으로 설치하셔도 �
  ![](./jumpbox/jumpbox_v1.png)
 네트워크 설정으로 들어가서 IP와 DNS를 현재의 환경에 맞게 변경합니다.<br>
 DNS서버는 비워두고 Automatic으로 합니다. <br>네트워크를 비활성화 했다가 다시 활성화 합니다.<br>
-CLI로 변경할 경우에는 아래의 주소에 있는 파일을 변경합니다.<br>
+CLI로 변경할 경우에는 아래의 경로 하위에 있는 파일을 변경합니다.<br>
 ```
-/etc/NetworkManager/system-connections/
+cd /etc/NetworkManager/system-connections/
+vi *
 sudo service network-manager restart
 ```
 
@@ -123,7 +124,7 @@ CLUSTER_NAME와 VSPHERE_CONTROL_PLANE_ENDPOINT 를 적절히 변경합니다.
 tap@harbor:~/.config/tanzu/tkg/clusterconfigs$ tanzu cluster create --file cluster1.yaml -v 9
 ```
 
-9. 설치 확인
+9. 설치 확인<br>
 ```
 tanzu cluster kubeconfig get 클러스터명 --admin
 kubectl config use-context 클러스트명-admin@클러스터명
@@ -156,14 +157,14 @@ tkg-system     tanzu-capabilities-controller-manager-7b5d47b5f4-d2z82   1/1     
 ```
 
 
-10. Avi 연동
+10. Avi 연동<br>
 tap 계정의 home에 avi 폴더가 있습니다.
-./avi/ako/로 이동한 후 다음의 두 파일을 수정합니다.
-install-tanzu-inst.sh : AVI의 controller IP와 username, password 를 입력합니다.
-values-tap.yaml 에서는 
+./avi/ako/로 이동한 후 다음의 두 파일을 수정합니다.<br>
+<b>install-tanzu-inst.sh</b> : AVI의 controller IP와 username, password 를 입력합니다.<br>
+<b>values-tap.yaml</b> 에서는 
 NetworkSettings 부분과 ControllerSettings 부분을 avi의 설정에 맞게 변경합니다.
 
-./install-tanzu-inst.sh 를 실행해서 현재 Cluster에 ako를 설치합니다.
+```./install-tanzu-inst.sh``` 를 실행해서 현재 Cluster에 ako를 설치합니다.
 
 kubectl get pods -A 를 해서 ako-0 pod가 새롭게 생성된 것을 확인할 수 있습니다.
 ```
