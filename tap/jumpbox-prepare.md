@@ -8,7 +8,7 @@ DNS서버가 없는 경우 다음의 방법으로 bind9으로 설치하셔도 �
 
 - Avi Load Balancer
 - [Jumpbox 다운로드](https://onevmw.sharepoint.com/:f:/r/teams/TAPHOLWorkshop/Shared%20Documents/General/jumpbox?csf=1&web=1&e=1Zi1TL)
-
+  위 경로에 있는 4개의 파일을 다운로드 받습니다. jumpbox-1.vmdk 는 210GB로 로컬 저장소 공간의 확보가 필요합니다.
 
 ### Jumpbox 준비
 1. 다운로드 받은 jumpbox 파일을 vCenter에서 'OVF 템플릿 배포'를 해서 업로드 합니다.
