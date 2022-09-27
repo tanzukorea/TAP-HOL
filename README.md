@@ -7,12 +7,20 @@ Tanzu Application Platform Hands-On-Labs 페이지 입니다.
 |---|---|
 |TAP|1.2.1|
 
-## 0. 사전 준비
-- Kubernetes Cluster
+* TAP설치를 위해서는 아래와 같은 Kubernetes Cluster가 필요합니다. 이 Lab에서는 TKG를 이용해서 진행합니다.
   - Kubernetes v1.22 or v1.23 이상 필요
   - AKS / EKS / GKE / Minikube / TKGm / TKGs (vSphere with Tanzu v7.0 U3a)
+
+
+## 0. 사전 준비
+- DNS Server
+- Avi Load Balancer
+- [Jumpbox 다운로드](https://onevmw.sharepoint.com/:f:/r/teams/TAPHOLWorkshop/Shared%20Documents/General/jumpbox?csf=1&web=1&e=1Zi1TL) :  Harbor 및 설치 관련 이미지가(TKG,TAP) 포함된 점프박스 VM
+- [Jumpbox 준비 및 TKG 설치하기](./tap/jumpbox-prepare.md)
+
+## 1. TAP 설치하기
 - Tanzu Application Platform
-  - [설치 방법](https://github.com/tanzukorea/tanzu-install)
+  - [설치 방법](https://github.com/tanzukorea/tanzu-install/blob/main/tap/airgapped/installation-on-vsphere.md)
 
 ## 1. TAP 둘러보기
 TAP GUI를 둘러보며 기능을 알아봅니다.
