@@ -11,14 +11,14 @@ DNS서버가 없는 경우 다음의 방법으로 bind9으로 설치하셔도 �
 
 
 ### Jumpbox 준비
-1. 다운로드 받은 jumpbox 파일읊 vCenter에서 'OVF 템플릿 배포'를 해서 업로드 합니다.
+1. 다운로드 받은 jumpbox 파일을 vCenter에서 'OVF 템플릿 배포'를 해서 업로드 합니다.
 1. 업로드한 VM을 시작합니다.
-1. jumpbox VM에 GUI 콘솔
+1. jumpbox VM에 GUI 콘솔에 접속
 1. jumpbox VM의 IP 변경
  ![](./jumpbox/jumpbox_v1.png)
-네트워크 설정으로 들어가서 IP와 DNS를 현재의 환경에 맞게 변경합니다.
-DNS서버는 비워두고 Automatic으로 합니다. 네트워크를 비활성화 했다가 다시 활성화 합니다.
-CLI로 변경할 경우에는 아래의 주소에 있는 파일을 변경합니다.
+네트워크 설정으로 들어가서 IP와 DNS를 현재의 환경에 맞게 변경합니다.<br>
+DNS서버는 비워두고 Automatic으로 합니다. <br>네트워크를 비활성화 했다가 다시 활성화 합니다.<br>
+CLI로 변경할 경우에는 아래의 주소에 있는 파일을 변경합니다.<br>
 ```
 /etc/NetworkManager/system-connections/
 sudo service network-manager restart
@@ -29,7 +29,7 @@ jumpbox에 있는 계정은 root와 tap 계정이고 비밀번호는 모두 VMwa
 ``` ssh root@10.220.58.99 ```
 
 6. DHCP서버 수정<br>
-현재의 환경에 맞도록 dhcp range를 수정합니다.
+현재의 환경에 맞게 dhcp range를 수정합니다.
 ```
 subnet 172.20.22.0 netmask 255.255.255.0 {
   range 172.20.22.20 172.20.22.100;
@@ -41,6 +41,8 @@ subnet 172.20.22.0 netmask 255.255.255.0 {
   max-lease-time 7200;
 }
 ```
+만약 domain-name-servers 를 같은 jumpbox에 설치한 경우에는 127.0.0.1을 입력합니다.
+
 7. DHCP 서버 재기동<br>
 ```
 systemctl restart isc-dhcp-server.service
@@ -56,8 +58,14 @@ docker-compose up -d
 
 ### TKG 설치하기
 1. TKG 설치 준비<br>
+아래의 과정은 tap 계정으로 switch해서 수행합니다.
 ```
 su - tap
+```
+
+DNS 서버가 없는 경우에는 아래의 설정을 반드시 추가해 주어야 합니다.
+DNS 서버가 있다고 가정하므로 여기서는 skip 합니다.
+```
 cd dns
 vi vsphere-overlay.yaml
 172.20.22.10   harbor.tanzukr.com 부분을 새로 할당한 jumpbox ip를 입력합니다.
@@ -82,7 +90,7 @@ tanzu mc create --ui -b 0.0.0.0:9090
 ```
 
 5. TKG 설치 UI 진행<br>
-TKG 설치 UI를 통해 TKG를 설치합니다. 
+브라우저에서 http://ip:9090 으로 접근하여 TKG 설치 UI를 통해 TKG를 설치합니다.
 설치는 vSphere with Tanzu(TKGs) 가 아니고 TKGm으로 설치를 진행하셔야 합니다.
 Deploy TKG Managment Cluster를 선택해서 설치를 진행합니다.
 
