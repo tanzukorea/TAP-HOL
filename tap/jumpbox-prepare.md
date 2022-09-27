@@ -85,6 +85,9 @@ Kubernetes v1.22.9+vmware.1-tkg.1 ovf 템플릿 파일을 다운로드 하여 vS
 photon-3-kube-v1.22.9+vmware.1-tkg.1-06852a87cc9526f5368519a709525c68.ova
 
 4. TKG Mgmt Cluster 생성<br>
+자세한 Guide는 아래의 링크를 참조합니다. 여기서는 대략적인 Guide로 진행합니다.
+[TKG 설치 상세 Guide](https://github.com/tanzukorea/TKGm-HOL/blob/main/tkgm/1.TKGm-setting/4.md)
+
 tap 계정으로 다음 명령어를 실행합니다.
 ```
 tanzu mc create --ui -b 0.0.0.0:9090 
