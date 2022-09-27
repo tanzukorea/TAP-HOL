@@ -17,33 +17,33 @@ Tanzu Application Platform Hands-On-Labs 페이지 입니다.
 - Avi Load Balancer
 - [Jumpbox 준비 및 TKG 설치하기](./tap/jumpbox-prepare.md)
 
-## 1. TAP 설치하기
-- Tanzu Application Platform
-  - [설치 방법](https://github.com/tanzukorea/tanzu-install/blob/main/tap/airgapped/installation-on-vsphere.md)
+## 1. TAP 환경 구성
+- [TAP 설치](./install/install-on-vsphere-hol.md)
+- [개발자용 네임스페이스 설정](./install/dev-namespace.md)
 
-## 1. TAP 둘러보기
+## 2. TAP 둘러보기
 TAP GUI를 둘러보며 기능을 알아봅니다.
 - [TAP GUI](./tap/gui.md)
 
-## 2. 애플리케이션 배포
+## 3. 애플리케이션 배포
 간단한 Spring Boot 애플리케이션을 TAP에 배포 후 CLI 및 GUI로 확인합니다.
 - [애플리케이션 배포](./tap/app-deploy.md)
 
-## 3. TAP Supply Chain 구성
+## 4. TAP Supply Chain 구성
 OOTB Basic Supply Chain을 Testing and Scanning으로 변경합니다.    
 구성 정보를 자동적으로 git repository에 push하도록 gitops 환경을 구성합니다.
 - [Supply Chain - Testing and Scanning](./tap/ootb-testing-and-scanning.md)
 - [GitOps](./tap/gitops.md)
 
-## 4. 개발 환경 개선을 위한 IDE 경험
+## 5. 개발 환경 개선을 위한 IDE 경험
 - IDE에서 앱 동적 배포하기
 - 원격 디버깅
 
-## 5. TAP Learning Center
+## 6. TAP Learning Center
 TAP에서 제공하는 Learning Center를 확인합니다
 - [Learning Center](./tap/learning-center.md)
 
-## 6. Optional Lab
+## 7. Optional Lab
 다음 Hands On Lab은 선택 사항입니다.
 - [멀티 클러스터](./tap/multi-cluster.md)
 
