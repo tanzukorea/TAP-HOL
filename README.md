@@ -17,9 +17,9 @@ Tanzu Application Platform Hands-On-Labs 페이지 입니다.
 - Avi Load Balancer
 - [Jumpbox 준비 및 TKG 설치하기](./tap/jumpbox-prepare.md)
 
-## 1. TAP 설치하기
+## 1. TAP 환경 구성
 - [TAP 설치](./install/install-on-vsphere-hol.md)
-- [Developer namespace 설정](./install/dev-namespace.md)
+- [개발자용 네임스페이스 설정](./install/dev-namespace.md)
 
 ## 1. TAP 둘러보기
 TAP GUI를 둘러보며 기능을 알아봅니다.
