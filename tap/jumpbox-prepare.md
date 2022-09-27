@@ -1,10 +1,11 @@
-# Jumpbox 준비
+## Jumpbox 준비 및 TKG 설치하기
 
-## 사전 준비사항
+### 사전 준비사항
 - DNS Server
 - Avi Load Balancer
 - [Jumpbox 다운로드](https://onevmw.sharepoint.com/:f:/r/teams/TAPHOLWorkshop/Shared%20Documents/General/jumpbox?csf=1&web=1&e=1Zi1TL)
 
+### Jumpbox 준비
 1. 다운로드 받은 jumpbox 파일읊 vCenter에서 'OVF 템플릿 배포'를 해서 업로드 합니다.
 1. 업로드한 VM을 시작합니다.
 1. jumpbox VM에 GUI 콘솔
@@ -45,6 +46,7 @@ docker-compose up -d
 윈도우 DNS서버가 없는 경우 다음의 방법으로 bind9으로 설치하셔도 됩니다.
 [bind9 DNS 서버 설치](./dns-install.md)
 
+### TKG 설치하기
 1. TKG 설치 준비
 su - tap
 cd dns
