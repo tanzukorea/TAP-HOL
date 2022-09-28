@@ -1,0 +1,99 @@
+profile: full
+ceip_policy_disclosed: true # Installation fails if this is set to 'false'
+buildservice:
+  kp_default_repository: "harbor.tanzukr.com/tanzu-application-platform/build-service"
+  kp_default_repository_username: "admin"
+  kp_default_repository_password: "VMware1!"
+  enable_automatic_dependency_updates: false
+  exclude_dependencies: true
+  ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          ...
+          -----END CERTIFICATE-----
+
+scanning:
+  metadataStore:
+    url: ""
+    
+accelerator:
+  samples:
+  # Prevent repeated polling of github to pull accelerators
+    include: false
+
+supply_chain: basic
+
+ootb_supply_chain_basic:
+  registry:
+    server: "harbor.tanzukr.com"
+    repository: "tanzu-application-platform/supply-chain"
+  gitops:
+    ssh_secret: ""
+
+learningcenter:
+  ingressDomain: "learning.tanzukr.com"
+
+appliveview:
+  ingressEnabled: true
+
+appliveview_connector:
+  backend:
+    ingressEnabled: true
+
+tap_gui:
+  service_type: ClusterIP
+  ingressEnabled: "true"
+  app_config:
+    app:
+      baseUrl: http://tap-gui.tanzukr.com
+    catalog:
+      locations:
+        - type: url
+          target: http://harbor.tanzukr.com:8090/tap-gui-catalog/catalog-info.yaml
+    backend:
+      baseUrl: http://tap-gui.tanzukr.com
+      cors:
+        origin: http://tap-gui.tanzukr.com
+          
+metadata_store:
+  ingress_domain: "tanzukr.com"
+  app_service_type: ClusterIP # (optional) Defaults to LoadBalancer. Change to NodePort for distributions that don't support LoadBalancer
+  ingress_enabled: "true"
+  ns_for_export_app_cert: "default"
+  targetImagePullSecret: "tap-registry"
+  ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          ...
+          -----END CERTIFICATE-----
+
+grype:
+  namespace: "default" # (optional) Defaults to default namespace.
+  targetImagePullSecret: "registry-credentials"
+
+contour:
+  envoy:
+    service:
+      type: LoadBalancer
+
+source_controller:
+  ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          ...
+          -----END CERTIFICATE-----
+
+convention_controller:
+  ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          ...
+          -----END CERTIFICATE-----
+
+cartographer:
+  ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          ...
+          -----END CERTIFICATE-----
+shared:
+  ingress_domain: tanzukr.com
+  ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          ...
+          -----END CERTIFICATE-----
