@@ -159,7 +159,7 @@ tanzu package installed list -n tap-install
 ## 4. TAP GUI 접속 확인
 설치가 완료 되었으면, TAP GUI 콘솔에 접속하여 설치가 정상적으로 이루어 졌는지를 확인해 봅니다. 위의 설치 과정에서 인그레스 도메인을 변경하였다면, 그 도메인에 맞게 접속해 봅니다.
 ```
-http://tap-gui.tap.tanzukr.com
+http://tap-gui.tanzukr.com
 ```
 
 ### 참고
