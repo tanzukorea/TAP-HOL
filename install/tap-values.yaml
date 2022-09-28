@@ -18,7 +18,7 @@ scanning:
 accelerator:
   samples:
   # Prevent repeated polling of github to pull accelerators
-    include: false
+    include: true
 
 supply_chain: basic
 
