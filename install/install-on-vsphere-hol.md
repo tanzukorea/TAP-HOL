@@ -125,7 +125,7 @@ TAP 을 구성할 프로파일은 Full을 기준으로 작성하였으며, 아�
 ### 5) TAP 설치
 다음 명령어를 사용하여 TAP 패키지를 설치합니다. tap-values.yaml 파일은 위의 3)번 단계에서 생성한 파일입니다.
 ```
-tanzu package install tap -p tap.tanzu.vmware.com -v $TAP_VERSION --values-file tap-values-vsphere.yaml -n tap-install
+tanzu package install tap -p tap.tanzu.vmware.com -v $TAP_VERSION --values-file tap-values.yaml -n tap-install
 ```
 
 만일 TAP 패키지의 수정이 필요하면 다음 명령어를 사용하여 패키지를 수정합니다.
