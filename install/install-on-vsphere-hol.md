@@ -26,6 +26,7 @@ export INSTALL_REGISTRY_USERNAME=admin
 export INSTALL_REGISTRY_PASSWORD=VMware1!
 export INSTALL_REGISTRY_HOSTNAME=harbor.tanzukr.com
 export TAP_VERSION=1.2.1
+export VERSION=1.6.1
 ```
 템플릿에 사용된 관련 변수 정보
 |변수명|설명|
@@ -34,7 +35,7 @@ export TAP_VERSION=1.2.1
 |INSTALL_REGISTRY_USERNAME|사설 레지스트리 접속 ID|
 |INSTALL_REGISTRY_PASSWORD|사설 레지스트리 접속 비밀번호|
 
-> **_NOTE:_** 아래 환경변수의 버전은 빌드 서비스의 버전을 의미합니다. TAP 패키지와 함께 설치된 빌드 서비스 버전을 참고하여 지정합니다.
+> **_NOTE:_** 아래 환경변수의 버전은 빌드 서비스의 버전을 의미합니다. TAP 패키지와 함께 설치된 빌드 서비스 버전을 참고하여 지정합니다. 여기서는 TAP 1.2.1 버전을 기준으로 빌드서비스 1.6.1을 사용하기 때문에 이 버전으로 지정하였습니다.
 
 ### 2) 이미지 레파지토리 구성
 TAP에서 사용하는 이미지 레파지토리 주소는 다음과 같습니다.
@@ -100,7 +101,7 @@ tanzu package available get tap.tanzu.vmware.com/${TAP_VERSION} --values-schema 
 
 #### a. 패키지 레지스트리 추가
 ```
-tanzu package repository add tbs-full-deps-repository --url ${INSTALL-REGISTRY-HOSTNAME}/tap/tbs-full-deps:$VERSION --namespace tap-install
+tanzu package repository add tbs-full-deps-repository --url ${INSTALL_REGISTRY_HOSTNAME}/tanzu-application-platform/full-tbs-deps-package-repo:$VERSION --namespace tap-install
 ```
 
 #### b. 패키지 레지스트리 확인
