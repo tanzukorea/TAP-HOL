@@ -152,7 +152,7 @@ tanzu package install full-tbs-deps -p full-tbs-deps.tanzu.vmware.com -v $VERSIO
 tanzu package installed list -n tap-install
 ```
 설치가 정상적으로 완료되었으면 다음과 같이 패키지 목록이 나타나고, Status에 "Reconcile Succeeded"를 확인할 수 있습니다.
-![](../../images/tanzu-package-list.png)
+![](./packages.png)
 
 <br/>
 
