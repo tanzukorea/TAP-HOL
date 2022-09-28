@@ -123,7 +123,7 @@ TAP 을 구성할 프로파일은 Full을 기준으로 작성하였으며, 아�
   |GIT-CATALOG-URL|TAP 카탈로그를 구성할 YAML 파일이 저장되어 있는 GIT의 주소|
 
 ### 5) TAP 설치
-다음 명령어를 사용하여 TAP 패키지를 설치합니다. tap-values.yaml 파일은 위의 3)번 단계에서 생성한 파일입니다.
+다음 명령어를 사용하여 TAP 패키지를 설치합니다. tap-values.yaml 파일은 위의 4)번 단계에서 생성한 파일입니다.
 ```
 tanzu package install tap -p tap.tanzu.vmware.com -v $TAP_VERSION --values-file tap-values.yaml -n tap-install
 ```
