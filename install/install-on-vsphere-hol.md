@@ -8,7 +8,8 @@
 - 소스 저장소: GitHub
 
 ## 0. 사전 준비 사항
-- 점프박스 및 TKG 설치 [설치 방법](./tap/jumpbox-prepare.md)
+- 점프박스 및 TKG 설치
+  - [설치 방법](../tap/jumpbox-prepare.md)
 
 ## 1. 설치 환경 구성
 ### 1) 환경 변수
