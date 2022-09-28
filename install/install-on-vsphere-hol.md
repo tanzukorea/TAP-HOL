@@ -112,6 +112,8 @@ tanzu package repository get tbs-full-deps-repository --namespace tap-install
 ### 4) TAP 설치를 위한 YAML 파일 생성
 TAP 을 구성할 프로파일은 Full을 기준으로 작성하였으며, 아래 템플릿을 참고하여 YAML 파일을 생성합니다.
 * YAML 파일 템플릿 참조: [링크](./tap-values.yaml)
+* 51번째 줄 catalog의 target에는 사전에 다운받아 git repository에 업로드한 파일 링크를 기입합니다.
+  * 예시) https://github.com/tanzukorea/TAP-HOL/blob/main/catalog/catalog-info.yaml
 * ca_cert_data에는 인증서 정보를 기입합니다.
 * 템플릿에 사용된 관련 변수 정보
   |변수명|설명|
