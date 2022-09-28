@@ -30,7 +30,7 @@ export TAP_VERSION=1.2.1
 |INSTALL_REGISTRY_USERNAME|사설 레지스트리 접속 ID|
 |INSTALL_REGISTRY_PASSWORD|사설 레지스트리 접속 비밀번호|
 
-> **_NOTE:_** 아래 환경변수의 버전은 빌드 서비스의 버전을 의미합니다. TAP 패키지와 함께 설치된 빌드 서비스 버전을 참고하여 지정합니다. 여기서는 TAP 1.2.1 버전을 기준으로 빌드서비스 1.6.1을 사용하기 때문에 이 버전으로 지정하였습니다.
+> **_NOTE:_** 아래 환경변수의 버전은 빌드 서비스의 버전을 의미합니다. TAP 패키지와 함께 설치된 빌드 서비스 버전을 참고하여 지정합니다.
 
 ### 2) 이미지 레파지토리 구성
 TAP에서 사용하는 이미지 레파지토리 주소는 다음과 같습니다.
@@ -75,6 +75,7 @@ tanzu package repository add tanzu-tap-repository --url ${INSTALL_REGISTRY_HOSTN
 ```
 
 #### c. 패키지 레지스트리 확인
+설치된 패키지 레지스트리의 status를 확인합니다. Reconcile succeed를 확인 후 다음 단계로 넘어갑니다.
 ```
 tanzu package repository get tanzu-tap-repository --namespace tap-install
 ```
@@ -89,21 +90,10 @@ tanzu package available list --namespace tap-install
 tanzu package available get tap.tanzu.vmware.com/${TAP_VERSION} --values-schema --namespace tap-install 
 ```
 
-### 3) 빌드 서비스를 위한 레지스트리 및 패키지 추가
-
-#### a. 패키지 레지스트리 추가
-```
-tanzu package repository add tbs-full-deps-repository --url ${INSTALL-REGISTRY-HOSTNAME}/tap/tbs-full-deps:$VERSION --namespace tap-install
-```
-
-#### b. 패키지 레지스트리 확인
-```
-tanzu package repository get tbs-full-deps-repository --namespace tap-install
-```
-
-### 4) TAP 설치를 위한 YAML 파일 생성
+### 3) TAP 설치를 위한 YAML 파일 생성
 TAP 을 구성할 프로파일은 Full을 기준으로 작성하였으며, 아래 템플릿을 참고하여 YAML 파일을 생성합니다.
-* YAML 파일 템플릿 참조: https://raw.githubusercontent.com/tanzukorea/tanzu-install/main/tap/airgapped/tap-values-vsphere.yaml
+* YAML 파일 템플릿 참조: [링크](./tap-values.yaml)
+* ca_cert_data에는 인증서 정보를 기입합니다.
 * 템플릿에 사용된 관련 변수 정보
   |변수명|설명|
   |------|---|
@@ -129,19 +119,6 @@ tanzu package installed update tap -p tap.tanzu.vmware.com -v $TAP_VERSION --val
 ```
 tanzu package installed list -n tap-install
 ```
-
-### 7) 빌드 서비스 디펜던시 설치
-다음 명령어를 사용하여 빌드 서비스 디펜던시 패키지를 설치합니다.
-```
-tanzu package install full-tbs-deps -p full-tbs-deps.tanzu.vmware.com -v $VERSION -n tap-install
-```
-
-### 8) TAP 및 빌드 서비스 디펜던시 설치 확인
-```
-tanzu package installed list -n tap-install
-```
-설치가 정상적으로 완료되었으면 다음과 같이 패키지 목록이 나타나고, Status에 "Reconcile Succeeded"를 확인할 수 있습니다.
-![](../../images/tanzu-package-list.png)
 
 ## 6. TAP GUI 접속 확인
 설치가 완료 되었으면, TAP GUI 콘솔에 접속하여 설치가 정상적으로 이루어 졌는지를 확인해 봅니다. 위의 설치 과정에서 인그레스 도메인을 변경하였다면, 그 도메인에 맞게 접속해 봅니다.
