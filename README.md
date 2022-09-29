@@ -46,5 +46,6 @@ TAP에서 제공하는 Learning Center를 확인합니다
 ## 7. Optional Lab
 다음 Hands On Lab은 선택 사항입니다.
 - [멀티 클러스터](./tap/multi-cluster.md)
+- [업그레이드](./tap/upgrade.md)
 
 
