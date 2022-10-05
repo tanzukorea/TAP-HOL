@@ -163,6 +163,6 @@ http://tap-gui.tanzukr.com
 ```
 
 ### 참고
-인터넷 차단 환경의 자세한 설치 방법 [링크](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-install-intro.html#install-air-gap)를 참고하시기 바랍니다. 
+인터넷 차단 환경의 자세한 설치 방법은 다음 [링크](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-install-intro.html#install-air-gap)를 참고하시기 바랍니다. 
 
 
