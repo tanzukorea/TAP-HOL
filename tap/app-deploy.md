@@ -8,6 +8,4 @@ TBU
 - (GUI) Application Live View
 - (GUI) Supply Chain
 
-
-
-- air-gapped 환경에서 workload 배포 [링크](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-getting-started-air-gap-workload.html)
+- 복잡한 Catalog 사용한 Application 배포 후 위에서 실행했던 내용들 재확인
