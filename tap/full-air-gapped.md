@@ -1,1 +1,1 @@
-- air-gapped 환경에서 workload 배포 [링크](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-getting-started-air-gap-workload.html)
+- [air-gapped 환경에서 workload 배포](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-getting-started-air-gap-workload.html)
