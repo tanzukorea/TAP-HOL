@@ -1,1 +1,1 @@
-TBU - 완전한 Air-Gapped 환경에서 구성 및 워크로드 배포 수행까지
+- air-gapped 환경에서 workload 배포 [링크](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-getting-started-air-gap-workload.html)
