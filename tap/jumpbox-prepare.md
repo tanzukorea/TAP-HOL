@@ -162,12 +162,12 @@ tkg-system     tanzu-capabilities-controller-manager-7b5d47b5f4-d2z82   1/1     
 
 10. Avi 연동<br>
 tap 계정의 home에 avi 폴더가 있습니다.
-./avi/ako/로 이동한 후 다음의 두 파일을 수정합니다.<br>
+~/avi/ako/로 이동한 후 다음의 두 파일을 수정합니다.<br>
 <b>install-tanzu-inst.sh</b> : AVI의 controller IP와 username, password 를 입력합니다.<br>
 <b>values-tap.yaml</b> 에서는 
 NetworkSettings 부분과 ControllerSettings 부분을 avi의 설정에 맞게 변경합니다.
 
-```./install-tanzu-inst.sh``` 를 실행해서 현재 Cluster에 ako를 설치합니다.
+```./install-tanzu-int.sh``` 를 실행해서 현재 Cluster에 ako를 설치합니다.
 
 kubectl get pods -A 를 해서 ako-0 pod가 새롭게 생성된 것을 확인할 수 있습니다.
 ```
