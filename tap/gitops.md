@@ -95,5 +95,7 @@ Supply Chain으로 가면 이전과 달리 Config Writer와 Pull Config 사이�
 
 ## 3. 워크로드 재배포 과정 확인
 Merge 이후 터미널로 돌아와 tanzu apps workload get 명령어로 조회하면 해당 Workload가 다시 배포되는 것을 확인할 수 있습니다. Build pod가 최근에 증가되었고, Knative Service 아래에 해당 app 접근 가능한 Url이 표시됩니다. 
+![](../images/Gitops-01.png)
 ![](../images/Gitops-02.png)
 
+소스코드의 변경이 있을때도 동일하게 approval 과정을 거쳐 build pod가 다시 생성되는 workload 재배포 과정을 거치게 됩니다. 
