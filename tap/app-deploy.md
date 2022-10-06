@@ -5,11 +5,9 @@
 * Tanzu CLI 명령을 실행하여 앱을 배포합니다.
 * 앱의 빌드 및 런타임 로그를 봅니다.
 * 브라우저에서 배포된 앱을 확인합니다.
-* TAP GUI에서 워크로드 등록하고 조회합니다.
 * tanzu-java-web-app accelerator를 본인의 로컬로 다운로드 합니다.
 * 개인 Git 저장소에 업로드 합니다. 
 * TAP GUI에서 app live view를 보기 위한 app을 배포합니다.
-
 
 
 
@@ -19,7 +17,9 @@
 * workload 파일을 이용하여 생성
 
 이번 랩에서는 tanzu CLI 파일을 작성하여 워크로드를 생성하는 방법으로 랩을 진행합니다.
-앱 소스는 아래 git에서 가져옵니다. 해당 git을 clone하여 각 개인의 github나 gitlab의 래퍼지토리를 복사하여 사용하거나 해당 git url을 사용해도 괜찮습니다. 다음과 같이 cmd 파일을 실행합니다.
+앱 소스는 아래 git에서 가져옵니다. (https://github.com/sample-accelerators/tanzu-java-web-app)
+해당 git repo는 실습자분의 git repo아닙니다. 
+
 <br/>
 **주의 : namespace는 앞에서 워크로드 배포를 위한 개발자용 네임스페이스 구성시 설정했던 namespace로 사용합니다.** <br/>
 
@@ -147,50 +147,8 @@ tanzu apps workload apply -f workload.yaml
 위와 같은 출력이 나타나면 "y" 를 입력하고 계속해서 워크로드 생성을 진행합니다.
 
 
-### 5. TAP GUI 접속
-다음 링크를 클릭하여 TAP GUI에 접속합니다.
 
-URL: http://tap-gui.tanzukr.com/
-
-최초 접속 화면은 다음과 같습니다. "Enter" 버튼을 클릭합니다.
-
-<img src="/images/catalog1.png" width="50%" height="50%" />
-
-### 6. TAP GUI에서 워크로드 등록
-
-홈 화면에 접속하였습니다. 이전에 생성한 워크로드 등록을 위하여 "REGISTRY ENTITY" 버튼을 클릭합니다.
-![](../images/catalog2.png)
-
-등록할 컴포넌트 정보를 가지고 있는 yaml 파일의 URL을 입력하고, "ANALYZE" 버튼을 클릭합니다.
-
-URL: https://github.com/sample-accelerators/tanzu-java-web-app/tree/main/catalog/catalog-info.yaml
-
-![](../images/catalog3.png)
-
-등록된 컴포넌트의 내용을 확인하고 "IMPORT" 버튼을 클릭합니다.
-![](../images/catalog4.png)
-
-이제 컴포넌트 등록이 완료되었습니다.
-![](../images/catalog5.png)
-
-### 7. TAP GUI에서 워크로드 조회
-홈 메뉴로 돌아가서, 내가 생성한 워크로드가 등록되었는지 확인하고, 워크로드 명을 클릭하여 워크로드를 조회합니다.
-![](../images/catalog6.png)
-
-워크로드의 간략한 개요를 확인합니다.
-![](../images/catalog7.png)
-
-"Runtime Resources" 탭을 클릭하여 워크로드와 관련된 리소스들을 확인합니다.
-![](../images/catalog8.png)
-
-해당 워크로드를 드릴다운하여, 관련된 여러 리소스들을 확인합니다. Deployment, Pod 등 다양한 리소스를 확인할 수 있습니다. 만일 Pod 정보가 보이지 않는다면, 웹 호출이 없어서 Pod가 중지된 것일 수 있습니다. 브라우저에서 해당 웹페이지에 접속하여 Pod를 구동시켜 준 뒤, 페이지를 리로드 하면 Pod 정보까지 조회됩니다.
-![](../images/catalog9.png)
-
-계층 구조를 가진 다양한 리소스들을 확인할 수 있습니다.
-![](../images/catalog10.png)
-
-
-### 8. accelerator 다운로드 및 개인 Git 저장소에 업로드 
+### 5. accelerator 다운로드 및 개인 Git 저장소에 업로드 
 TAP-GUI의 accelerator로 메뉴로 접속하여  "CHOOSE" 버튼을 클릭합니다.
 ![](../images/acc-01.png)
 
@@ -206,7 +164,7 @@ Name, Prefix 값을 입력하고 "NEXT" 버튼을 클릭합니다.
 GITHUB에서 아래와 같이 repository를 생성합니다.
 ![](../images/acc-05.png)
 
-압축을 푼후 해당 폴더로 들어온후, 아래와 같이 위에서 생성한 저장소로 업로드 합니다.
+tanzu-java-web-app.zip파일을 압축을 푼 후, tanzu-java-web-app 경로에서 아래와 같이 cmd를 실행하여 위에서 생성한 저장소로 업로드 합니다.
 
 `
 ```cmd
@@ -224,11 +182,12 @@ git push -u origin main
 ![](../images/acc-07.png)
 
 
-### 9. APP LIVE VIEW 조회를 위한 워크로드 배포
+### 6. APP LIVE VIEW 조회를 위한 워크로드 배포
 
 git-repo는 위에서 생성한 git https 경로를 가져옵니다. 다음과 같이 cmd 파일을 실행합니다.
+
 <br/>
-**주의 : namespace는 앞에서 워크로드 배포를 위한 개발자용 네임스페이스 구성시 설정했던 네임스페이스로 사용합니다.** <br/>
+**주의 : --git-repo는 5번 실습에서 업로드한 각 개인의 git-repo를 넣습니다..** <br/>
 
 `
 ```cmd

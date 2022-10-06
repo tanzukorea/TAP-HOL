@@ -22,32 +22,36 @@ Tanzu Application Platform Hands-On-Labs 페이지 입니다.
 - [개발자용 네임스페이스 설정](./install/dev-namespace.md)
 
 ## 2. 애플리케이션 배포
-간단한 Spring Boot 애플리케이션을 TAP에 배포 후 CLI 및 GUI로 확인합니다.
+간단한 Spring Boot 애플리케이션을 TAP에 배포합니다.
 - [애플리케이션 배포](./tap/app-deploy.md)
 
-## 3. TAP 둘러보기
+## 3. 배포한 애플리케이션 등록
+배포한 applications을 등록하고 GUI로 확인합니다.
+- [catalog 등록](./tap/catalog.md)
+
+## 4. GUI 둘러보기
 TAP GUI를 둘러보며 기능을 알아봅니다.
 - [TAP GUI](./tap/gui.md)
 
-## 4. TAP Supply Chain 구성
+## 5. TAP Supply Chain 구성
 OOTB Basic Supply Chain을 Testing and Scanning으로 변경합니다.    
 구성 정보를 자동적으로 git repository에 push하도록 gitops 환경을 구성합니다.
 - [Supply Chain - Testing and Scanning](./tap/ootb-testing-and-scanning.md)
 - [GitOps](./tap/gitops.md)
 
-## 5. 개발 환경 개선을 위한 IDE 경험
+## 6. 개발 환경 개선을 위한 IDE 경험
 - IDE에서 앱 동적 배포하기
 - 원격 디버깅
 
-## 6. TAP Learning Center
+## 7. TAP Learning Center
 TAP에서 제공하는 Learning Center를 확인합니다
 - [Learning Center](./tap/learning-center.md)
 
-## 7. Upgrade
+## 8. Upgrade
 현재 설치되어 있는 Tanzu Application Platform v1.2.1을 v1.3.0으로 업그레이드 합니다.
 - [업그레이드](./tap/upgrade.md)
 
-## 8. Optional Lab
+## 9. Optional Lab
 - [인터넷 차단 환경 구성](./tap/full-air-gapped.md)
 - [멀티 클러스터](./tap/multi-cluster.md)
 
