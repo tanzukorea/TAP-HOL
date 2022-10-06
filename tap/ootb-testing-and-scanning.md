@@ -132,7 +132,7 @@ package_overlays:
       - name: "grype-offline"
 ~~~
 
-Jumpbox의 ~/tap-install/supplychain_test_scanning/grype/patch.yaml 파일 중 GRYPE_DB_UPDATE_URL 항목을 수정합니다.
+Jumpbox의 ~/tap-install/supplychain_test_scanning/grype/patch.yaml 파일 중 GRYPE_DB_UPDATE_URL 항목을 아래와 같이 수정합니다.
 ~~~
 - name: GRYPE_DB_UPDATE_URL
   value: https://toolbox-data.anchore.io/grype/databases/listing.json
