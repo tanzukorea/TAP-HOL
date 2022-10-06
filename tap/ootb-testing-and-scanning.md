@@ -149,4 +149,23 @@ kubectl apply -f patch.yaml
 kubectl annotate pkgi tap ext.packaging.carvel.dev/ytt-paths-from-secret-name.1=grype-offline -n tap-install
 ~~~
 
+### 5) 애플리케이션 배포
+다음 단계로는 워크로드를 새로운 supply chain과 연결 해야 합니다. 다음 명령어를 통해 수행합니다.
+
+~~~
+tanzu apps workload create tanzu-java-web-app \
+  --git-repo https://github.com/sample-accelerators/tanzu-java-web-app \
+  --git-branch main \
+  --type web \
+  --label app.kubernetes.io/part-of=tanzu-java-web-app \
+  --label apps.tanzu.vmware.com/has-tests=true \
+  --yes \
+  --namespace default
+~~~
+
+tanzu apps workload get 명령어로 조회하면 이전과 다르게 Resource에 source-scanner 및 image-scanner가 추가되었으며 pod도 마찬가지로 2개 추가 (source 및 image 스캔용) 되었음을 확인 가능합니다.
+![](../images/supply_chain_scan_cli.png)
+
+GUI로 이동해 Supply Chain을 확인합니다. 만약 violation이 발견되었다면 아래 사진과 같이 표시됩니다.
+![](../images/supply_chain_scan_result.png)
 
