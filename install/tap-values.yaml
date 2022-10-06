@@ -53,6 +53,7 @@ ootb_supply_chain_basic:
 
 learningcenter:
   ingressDomain: "learning.tanzukr.com"
+  ingressClass: contour
 
 appliveview:
   ingressEnabled: true
