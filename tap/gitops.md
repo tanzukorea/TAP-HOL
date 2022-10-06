@@ -6,7 +6,7 @@
 
 ### 1) HTTP(S) Basic-auth
 구성 정보를 담을 repository가 https:// 또는 http:// 를 사용한다면, Kubernetes 시크릿은 다음과 같이 해당 repository에 대한 credential을 제공해야 합니다. <br/>
-다음 Yaml 파일 예시를 참고하여 작성합니다. GIT-USERNAME에는 본인의 github id, GIT-PASSWORD에는 본인의 github token 정보를 사용합니다. <br/>
+다음 Yaml 파일 예시를 참고하여 작성합니다. GIT-USERNAME에는 본인의 github id, GIT-PASSWORD에는 본인의 github 비밀번호 혹은 token 정보를 사용합니다. <br/>
 
 ~~~
 apiVersion: v1
