@@ -17,7 +17,7 @@
 * workload 파일을 이용하여 생성
 
 이번 랩에서는 tanzu CLI 파일을 작성하여 워크로드를 생성하는 방법으로 랩을 진행합니다.
-앱 소스는 아래 git에서 가져옵니다. (https://github.com/sample-accelerators/tanzu-java-web-app)
+앱 소스는 아래 git에서 가져옵니다. (https://github.com/kshong05311129/tanzu-java-web-app-tap-hol)
 해당 git repo는 실습자분의 git repo아닙니다. 
 
 <br/>
@@ -26,7 +26,7 @@
 `
 ```cmd
 tanzu apps workload create tanzu-java-web-app \
---git-repo https://github.com/sample-accelerators/tanzu-java-web-app \
+--git-repo https://github.com/kshong05311129/tanzu-java-web-app-tap-hol \
 --git-branch main \
 --type web \
 --label app.kubernetes.io/part-of=tanzu-java-web-app \
@@ -35,7 +35,7 @@ tanzu apps workload create tanzu-java-web-app \
 ```
 
 ![](../images/tap-01.png)
-위와 같은 출력이 나타나면 "y" 를 입력하고 계속해서 워크로드 생성을 진행합니다.
+
 
 
 
@@ -133,7 +133,7 @@ metadata:
 spec:
   source:
     git:
-      url: https://github.com/sample-accelerators/tanzu-java-web-app
+      url: https://github.com/kshong05311129/tanzu-java-web-app-tap-hol
       ref:
         branch: main
 ```
