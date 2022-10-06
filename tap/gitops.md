@@ -5,7 +5,7 @@
 ## 1. GitOps 적용
 
 ### 1) HTTP(S) Basic-auth
-구성 정보를 담을 repository가 https:// 또는 http://를 사용한다면, Kubernetes 시크릿은 다음과 같이 해당 repository에 대한 credential을 제공해야 합니다. <br/>
+구성 정보를 담을 repository가 https:// 또는 http:// 를 사용한다면, Kubernetes 시크릿은 다음과 같이 해당 repository에 대한 credential을 제공해야 합니다. <br/>
 다음 Yaml 파일 예시를 참고하여 작성합니다. username과 password (password 대신 git token 사용 가능)에는 본인의 계정 정보를 사용합니다. <br/>
 ~~~
 apiVersion: v1
