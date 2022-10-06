@@ -91,5 +91,9 @@ Supply Chain으로 가면 이전과 달리 Config Writer와 Pull Config 사이�
 ![](../images/gitops-approval-3.png)
 
 위 사진과 같이 설정했던 리뷰 문구가 표시되고, commit 내용 및 변경된 파일 확인, comment 작성, merge 수행 등이 가능합니다. <br/>
+이 중 Merge 작업을 수행합니다.
 
+## 3. 워크로드 재배포 과정 확인
+Merge 이후 터미널로 돌아와 tanzu apps workload get 명령어로 조회하면 해당 Workload가 다시 배포되는 것을 확인할 수 있습니다. Build pod가 최근에 증가되었고, Knative Service 아래에 해당 app 접근 가능한 Url이 표시됩니다. 
+![](../images/Gitops-02.png)
 
