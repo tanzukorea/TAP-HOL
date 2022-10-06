@@ -98,17 +98,56 @@ kubectl get pod
 ```
 ![](../images/tap-06.png)
 
-### 3. 그 밖의 tanzu 명령어
+### 3. 워크로드 삭제
+
 > 워크로드 삭제
 ```cmd
 tanzu apps workload delete tanzu-java-web-app
 ```
 
+![](../images/tap-07.png)
+
+
 > 기타 Tanzu CLI 참조
 
 https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-cli-plugins-apps-command-reference.html
 
-### 4. TAP GUI 접속
+
+
+### 4. 워크로드 파일 생성 및 앱 배포
+앞선 실습에서는 tanzu CLI를 이용하여 앱 배포를 하였고, 이번 실습에서는 workload 파일을 이용하여 앱을 배포하겠습니다.
+
+
+여기서는 workload 파일을 작성하여 워크로드를 생성하는 방법으로 랩을 진행합니다.
+앱 소스는 git에서 가져온다고 가정하고, 다음과 같이 workload.yaml 파일을 생성합니다.
+
+```yaml
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: tanzu-java-web-app
+  labels:
+    app.kubernetes.io/part-of: tanzu-java-web-app
+    apps.tanzu.vmware.com/workload-type: web
+
+spec:
+  source:
+    git:
+      url: https://github.com/tanzukorea/tanzu-java-web-app
+      ref:
+        branch: main
+```
+
+워크로드 파일을 생성한 후 tanzu 명령어로 워크로드를 생성합니다.
+```cmd
+tanzu apps workload apply -f workload.yaml
+```
+
+![](../images/tap-08.png)
+위와 같은 출력이 나타나면 "y" 를 입력하고 계속해서 워크로드 생성을 진행합니다.
+
+
+### 5. TAP GUI 접속
 다음 링크를 클릭하여 TAP GUI에 접속합니다.
 
 URL: http://tap-gui.tanzukr.com/
@@ -117,7 +156,7 @@ URL: http://tap-gui.tanzukr.com/
 
 <img src="/images/catalog1.png" width="50%" height="50%" />
 
-### 5. TAP GUI에서 워크로드 등록
+### 6. TAP GUI에서 워크로드 등록
 
 홈 화면에 접속하였습니다. 이전에 생성한 워크로드 등록을 위하여 "REGISTRY ENTITY" 버튼을 클릭합니다.
 ![](../images/catalog2.png)
@@ -134,7 +173,7 @@ URL: https://github.com/sample-accelerators/tanzu-java-web-app/tree/main/catalog
 이제 컴포넌트 등록이 완료되었습니다.
 ![](../images/catalog5.png)
 
-### 6. TAP GUI에서 워크로드 조회
+### 7. TAP GUI에서 워크로드 조회
 홈 메뉴로 돌아가서, 내가 생성한 워크로드가 등록되었는지 확인하고, 워크로드 명을 클릭하여 워크로드를 조회합니다.
 ![](../images/catalog6.png)
 
@@ -151,7 +190,7 @@ URL: https://github.com/sample-accelerators/tanzu-java-web-app/tree/main/catalog
 ![](../images/catalog10.png)
 
 
-### 7. accelerator 다운로드 및 개인 Git 저장소에 업로드 
+### 8. accelerator 다운로드 및 개인 Git 저장소에 업로드 
 TAP-GUI의 accelerator로 메뉴로 접속하여  "CHOOSE" 버튼을 클릭합니다.
 ![](../images/acc-01.png)
 
@@ -185,7 +224,7 @@ git push -u origin main
 ![](../images/acc-07.png)
 
 
-### 8. APP LIVE VIEW 조회를 위한 워크로드 배포
+### 9. APP LIVE VIEW 조회를 위한 워크로드 배포
 
 git-repo는 위에서 생성한 git https 경로를 가져옵니다. 다음과 같이 cmd 파일을 실행합니다.
 <br/>
@@ -206,5 +245,4 @@ tanzu apps workload create tanzu-java-web-app-live-view \
 ```
 
 ![](../images/tap-live-view01.png)
-위와 같은 출력이 나타나면 "y" 를 입력하고 계속해서 워크로드 생성을 진행합니다.
 
