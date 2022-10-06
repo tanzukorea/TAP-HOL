@@ -12,25 +12,38 @@ TAP GUI의 메뉴들을 살펴보도록 하겠습니다.
 ![](../images/gui-01-01.png)
 Catalog 목록중 "tanzu-java-web-app"을 클릭 해보겠습니다.
 
+
 ![](../images/gui-01-02.png)
 SYSTEM의 "tanzu-roadshow"을 클릭 해보겠습니다.
+
+
 
 ![](../images/gui-01-03.png)
 오른쪽에 Has components목록과 APIs 목록을 확인 할 수 있습니다.
 
+
+
 ![](../images/gui-01-04.png)
 "Diagram" 클릭하겠습니다.
 
+
+
 ![](../images/gui-01-04.png)
 "Diagram" 확인 할 수 있습니다.
+
+
 
 #### Documentation
 배포한 APP들의 상세한 설명을 볼 수 있는 메뉴입니다.
 ![](../images/gui-02.png)
 
+
+
 #### Accelerators
 APP들을  Accelerators에 등록할수 있으며, 현재 등록된 App들을 보여주는 메뉴입니다. 
 ![](../images/gui-03.png)
+
+
 
 #### APIs
 API 목록을 확인 할 수 있는 메뉴입니다.
@@ -38,8 +51,12 @@ API 목록을 확인 할 수 있는 메뉴입니다.
 ![](../images/gui-04.png)
 "tanzu-java-web-app-api" 클릭합니다.
 
+
+
 ![](../images/gui-05.png)
 "Definition"을 클릭합니다.
+
+
 
 ![](../images/gui-06.png)
 API 목록을 확인 할 수 있습니다.
@@ -50,9 +67,10 @@ API 목록을 확인 할 수 있습니다.
 ![](../images/gui-07.png)
 "tanzu-java-web-app" 을 클릭합니다.
 
+
+
 ![](../images/gui-08.png)
 tanzu-java-web-app의 파이프라인  정보 및 단계별 상황을 확인 할 수 있습니다. 
-
 
 
 
