@@ -54,6 +54,30 @@ ootb_supply_chain_basic:
 learningcenter:
   ingressDomain: "learning.tanzukr.com"
   ingressClass: contour
+  ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          MIIDwzCCAqugAwIBAgIUUWdX02WTOTFwA0EW+HvwHzN5/k8wDQYJKoZIhvcNAQEN
+          BQAwZTELMAkGA1UEBhMCS1IxDjAMBgNVBAgMBVNFT1VMMRAwDgYDVQQHDAdHYW5n
+          bmFtMQ4wDAYDVQQKDAVUYW56dTEOMAwGA1UECwwFTUFQQlUxFDASBgNVBAMMC3Rh
+          bnp1a3IuY29tMB4XDTIyMDkxNjA2MTk1N1oXDTMyMDkxMzA2MTk1N1owZTELMAkG
+          A1UEBhMCS1IxDjAMBgNVBAgMBVNFT1VMMRAwDgYDVQQHDAdHYW5nbmFtMQ4wDAYD
+          VQQKDAVUYW56dTEOMAwGA1UECwwFTUFQQlUxFDASBgNVBAMMC3Rhbnp1a3IuY29t
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvSyGmTQVvD6J+YtFUkO5
+          j/SSi8onaxvmGVYCuS6l7y7k9HJj48ASctzl3K65ePCuKanLNaATrpqyC6B8Ywhl
+          /UJxukz5z6GrdguCJiSEBQnKPdVq9bn3Tu8v9JWzk4UcRFRU9GWnWRul6w1pM/ms
+          xnodNb9rhebvJ2GndhkBoP9FQE/gF7cp2wjcpMCcrBLKcqZW/TuGkZHMF+eAXWDs
+          +t5XIdteJLRpfLVYQxBxKh1JhWdUONC+2B1vt5mm8I1xgasXa+MF0s2RMQTu99/V
+          KRQnmEpi9Bc/v2H/Ub2PClQwL1crTelmMbVtZA9uR51qBkHOUfGWSEpXEGZEIqFN
+          iwIDAQABo2swaTAdBgNVHQ4EFgQU5ujIZAe0J3MoJQjaQdJloxHOXeYwHwYDVR0j
+          BBgwFoAU5ujIZAe0J3MoJQjaQdJloxHOXeYwDwYDVR0TAQH/BAUwAwEB/zAWBgNV
+          HREEDzANggt0YW56dWtyLmNvbTANBgkqhkiG9w0BAQ0FAAOCAQEAhZMa+lDMKGoE
+          wiN5viqUbZ9/jptR3sS6Vtr0AkEPPq0r/JXbKPWlmZYmYbhAdE2l5pAzKJJ+/hl3
+          +6uZftK4aSAFd5YFkDVqkHA1yWN3IARHJBrJ1MjXmnS7qqPJKE1dgmKsrS+0qvl9
+          EkMfoQvVGcDG/+gc8u9EhDZZpEsVyCdajTQIojnm9W8Ut/pf0idw8TgDhukWDtAt
+          JYLPpCV9R1StN35zdLHsP097X24LPEqTF/ulB7zmwTLmejWXl/WWuiXgs+v4fd+Z
+          EKaXUumX4rIj2WWNMYlY8lpQb7JhS5zfaVegVe1/UqzmQz0XmZYiG95Y4gFV1+DO
+          4aCJxMz52w==
+          -----END CERTIFICATE-----
 
 appliveview:
   ingressEnabled: true
