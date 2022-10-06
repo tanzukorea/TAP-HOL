@@ -133,7 +133,7 @@ metadata:
 spec:
   source:
     git:
-      url: https://github.com/tanzukorea/tanzu-java-web-app
+      url: https://github.com/sample-accelerators/tanzu-java-web-app
       ref:
         branch: main
 ```
