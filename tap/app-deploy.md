@@ -148,7 +148,7 @@ tanzu apps workload apply -f workload.yaml
 
 
 
-### 5. accelerator 다운로드 및 개인 Git 저장소에 업로드 
+### 5. Accelerator 다운로드 및 개인 Git 저장소에 업로드 
 TAP-GUI의 accelerator로 메뉴로 접속하여  "CHOOSE" 버튼을 클릭합니다.
 ![](../images/acc-01.png)
 
@@ -161,7 +161,7 @@ Name, Prefix 값을 입력하고 "NEXT" 버튼을 클릭합니다.
 "DOWNLOAD ZIP FILE" 버튼을 클릭하고, 로컬 PC로 다운로드를 확인합니다.
 ![](../images/acc-04.png)
 
-GITHUB에서 아래와 같이 repository를 생성합니다.
+사전에 준비한 각 개인의 GITHUB 접속하여 아래와 같이 repository를 생성합니다.
 ![](../images/acc-05.png)
 
 tanzu-java-web-app.zip파일을 압축을 푼 후, tanzu-java-web-app 경로에서 아래와 같이 cmd를 실행하여 위에서 생성한 저장소로 업로드 합니다.
@@ -183,7 +183,26 @@ git push -u origin main
 
 
 ### 6. APP LIVE VIEW 조회를 위한 워크로드 배포
+해당 실습은 Spring Boot기반의 애플리케이션을 배포하여 TAP의 기능 중 하나인 App Live View를 TAP GUI화면에서 확인하기 위해서 신규로 App를 배포합니다.
 
+5번에서 각 개인 git repo로 업로드한 tanzu-java-web-app2/catalog-info.yaml 파일을 아래와 같이 github ui에서 직접 아래와 같이 수정을 합니다.
+
+
+5번에서 업로드한 각 개인의 git repo의 catalog-info.yaml파일로 이동 후, "Edit this file" 을 클릭합니다.
+![](../images/acc-08.png)
+
+
+tanzu-java-web-app로 되어 있는 부분을 ---> tanzu-java-web-app-live-view로 수정합니다. 3군데 모두 수정후, 아래 하단에 "Commit changes" 버튼을 클릭합니다.
+![](../images/acc-09.png)
+
+
+catalog-info.yaml 파일이 아래와 같이 정상적으로 변경되어 되어 있는지 확인합니다.
+![](../images/acc-10.png)
+
+
+
+
+4번에서 배포한 app name과 중복되지 않도록, 아래 tanzu cli의 tanzu-java-web으로 설정되어 있는 부분을 --> tanzu-java-web-app-live-view로 모두 변경합니다.
 git-repo는 위에서 생성한 git https 경로를 가져옵니다. 다음과 같이 cmd 파일을 실행합니다.
 
 <br/>
