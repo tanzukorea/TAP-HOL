@@ -1,6 +1,6 @@
 # Upgrade
 
-본 과정에서는 TAP (Tanzu Application Platform)의 버전을 업그래이드 합니다. 현재 설치된 버전은 v1.2.1이며, v1.3.0으로 업그레이드를 진행합니다.
+본 과정에서는 TAP (Tanzu Application Platform)의 버전을 업그래이드 합니다. 현재 설치된 버전은 v1.2.1이며, v1.3.0-rc.1으로 업그레이드를 진행합니다.
 
 
 ## 1.파일 다운받기
@@ -51,7 +51,7 @@ Tanzu Application Platform은 설치할 때 수행했던 profile (tap-values.yam
 tanzu package installed update tap -p tap.tanzu.vmware.com -v 1.3.0-rc.1 --values-file test-tap-values.yaml -n tap-install
 ~~~
 
-시간이 다소 소요되며, 업그레이드 후 다음으로 검증을 마무리합니다.
+시간이 다소 소요되며, 업그레이드 후 다음 명령어로 검증합니다.
 ~~~
 tanzu package installed list --namespace tap-install
 ~~~
