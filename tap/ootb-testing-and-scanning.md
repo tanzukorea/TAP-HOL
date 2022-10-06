@@ -12,7 +12,7 @@
 
 ## 1.OOTB Supply Chain - Testing 
 
-### 1) Tekton Pipeline 설정
+### 1) tap-values.yaml 변경
 
 tap-values.yaml 에서 supply chain에 대한 정보가 있는 Line을 다음과 같이 업데이트합니다.
 ~~~
@@ -39,6 +39,8 @@ tanzu package installed list -n tap-install
 아래와 같이 ootb-supply-chain-testing이 적용되었음을 확인합니다.
 ![](../images/Supply_chain_testing.png)
 
+### 2) Tekton Pipeline 설정
+
 다음 단계로는 Tekton Pipeline을 업데이트 합니다. 예시 yaml은 Jumpbox의 ~/tap-install/supplychain_test_scanning/tekton_pipeline.yaml 혹은 [링크](../install/tekton_pipeline.yaml) 에서 확인 가능합니다. 해당 Yaml 파일을 적용합니다.
 
 ~~~
@@ -46,6 +48,9 @@ kubectl apply -f tekton_pipeline.yaml)
 ~~~
 
 yaml 파일에 정의된 step을 통해 개발자 워크로드에 표시된 repository 에서 코드를 가져오고 repository 내에서 테스트를 실행합니다. Tekton 파이프라인의 단계는 구성 변경이 가능하며 개발자가 코드를 테스트하는 데 필요한 추가 항목을 추가할 수 있습니다.
+
+
+### 3) 애플리케이션 배포
 
 다음 단계로는 워크로드를 새로운 supply chain과 연결 해야 합니다. 다음 명령어를 통해 수행합니다.
 
@@ -68,4 +73,52 @@ GUI로 이동해 Supply Chain을 확인합니다.
 
 각 테스트의 id를 클릭해 detail 정보를 확인할 수 있습니다.
 ![](../images/supply_chain_test_gui_02.png)
+
+
+
+## 2.OOTB Supply Chain - Testing and Scanning
+### 1) 패키지 설치 확인
+
+OOTB Testing and Scanning 을 설치하기 위해서는 먼저 scan controller와 grype 스캐너가 설치되었는지 확인이 필요합니다. 다음 명령어를 통해 확인합니다.
+~~~
+tanzu package installed get scanning -n tap-install
+tanzu package installed get grype -n tap-install
+~~~
+
+설치되지 않았을 경우, [다음 링크](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-scst-scan-install-scst-scan.html)를 참고해 설치를 진행 후 다음 단계로 넘어갑니다.
+
+### 2) ScanPolicy
+ScanPolicy는 아래의 템플릿을 이용하여 설치합니다. 해당 탬플릿의 경우 notAllowedSeverities := ["Critical","High","UnknownSeverity"]를 사용하여 중요, 높음 및 알 수 없는 등급의 CVE가 발견된 경우 Supply Chain을 타단합니다. <br/>
+ScanPolicy 템플릿은 Jumpbox의 ~/tap-install/supplychain_test_scanning 혹은 [여기](../install/scanpolicy.yaml)에서 확인할 수 있습니다.
+
+~~~
+kubectl apply -f scanpolicy.yaml
+~~~
+
+### 3) tap-values.yaml 변경
+tap-values.yaml 에서 supply chain에 대한 정보가 있는 Line을 다음과 같이 업데이트합니다.
+~~~
+- supply_chain: testing
++ supply_chain: testing_scanning
+
+- ootb_supply_chain_testing:
++ ootb_supply_chain_testing_scanning:
+    registry:
+      server: "<SERVER-NAME>"
+      repository: "<REPO-NAME>"
+~~~
+
+설정한 profile로 tap 패키지를 업데이트합니다.
+~~~
+tanzu package installed update tap -p tap.tanzu.vmware.com -v 1.2.1 --values-file tap-values.yaml -n tap-install
+~~~
+
+패키지가 적용되었는지 다음 명령어를 통해 확인합니다.
+
+~~~
+tanzu package installed list -n tap-install
+~~~
+
+아래와 같이 ootb-supply-chain-testing이 적용되었음을 확인합니다.
+
 
