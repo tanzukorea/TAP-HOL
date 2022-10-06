@@ -18,7 +18,7 @@ URL: http://tap-gui.tanzukr.com/
 
 등록할 컴포넌트 정보를 가지고 있는 yaml 파일의 URL을 입력하고, "ANALYZE" 버튼을 클릭합니다.
 
-URL: https://github.com/sample-accelerators/tanzu-java-web-app/tree/main/catalog/catalog-info.yaml
+URL: https://github.com/kshong05311129/tanzu-java-web-app-tap-hol/tree/master/catalog/*.yaml
 
 ![](../images/catalog3.png)
 
