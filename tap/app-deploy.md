@@ -120,9 +120,9 @@ URL: http://tap-gui.tanzukr.com/
 홈 화면에 접속하였습니다. 이전에 생성한 워크로드 등록을 위하여 "REGISTRY ENTITY" 버튼을 클릭합니다.
 ![](../images/catalog2.png)
 
-등록할 컴포넌트 정보를 가지고 있는 yaml 파일의 URL을 입력하고, "ANALYZE" 버튼을 클릭합니다. (URL에서 S# 번호 확인)
+등록할 컴포넌트 정보를 가지고 있는 yaml 파일의 URL을 입력하고, "ANALYZE" 버튼을 클릭합니다.
 
-URL: https://github.com/tanzukorea/tanzu-java-web-app/blob/main/catalog-hol/catalog-s1.yaml
+URL: https://github.com/sample-accelerators/tanzu-java-web-app/tree/main/catalog/catalog-info.yaml
 
 ![](../images/catalog3.png)
 
@@ -205,3 +205,4 @@ tanzu apps workload create tanzu-java-web-app-live-view \
 
 ![](../images/tap-live-view01.png)
 위와 같은 출력이 나타나면 "y" 를 입력하고 계속해서 워크로드 생성을 진행합니다.
+
