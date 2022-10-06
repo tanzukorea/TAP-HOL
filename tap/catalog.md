@@ -43,3 +43,9 @@ URL: https://github.com/kshong05311129/tanzu-java-web-app-tap-hol/tree/master/ca
 
 계층 구조를 가진 다양한 리소스들을 확인할 수 있습니다.
 ![](../images/catalog10.png)
+
+
+### 4. TAP GUI에서 워크로드 등록(APP LIVE VIEW 확인을 위해서)
+
+2.6(APP LIVE VIEW 조회를 위한 워크로드 배포)에서 실습한 각 개인 계정의 git repo에 배포한 catalog-info.yaml 파일 경로로 위 과정을 반복하여 TAP GUI 에서 워크로드를 등록합니다.
+URL: https://github.com/kshong05311129/tanzu-java-web-app2/blob/main/catalog-info.yaml
