@@ -163,7 +163,7 @@ tkg-system     tanzu-capabilities-controller-manager-7b5d47b5f4-d2z82   1/1     
 10. Avi 연동<br>
 tap 계정의 home에 avi 폴더가 있습니다.
 ~/avi/ako/로 이동한 후 다음의 두 파일을 수정합니다.<br>
-<b>install-tanzu-inst.sh</b> : AVI의 controller IP와 username, password 를 입력합니다.<br>
+<b>install-tanzu-int.sh</b> : AVI의 controller IP와 username, password 를 입력합니다.<br>
 <b>values-tap.yaml</b> 에서는 
 NetworkSettings 부분과 ControllerSettings 부분을 avi의 설정에 맞게 변경합니다.
 
