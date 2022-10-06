@@ -1,4 +1,4 @@
-# Supply Chain 변경
+# OOTB Supply Chain
 
 본 과정에서는 TAP (Tanzu Application Platform)의 OOTB Supply Chain을 basic에서 testing 및 testing_and_scanning으로 변경하는 방법에 대해 알아보겠습니다.
 
@@ -120,5 +120,33 @@ tanzu package installed list -n tap-install
 ~~~
 
 아래와 같이 ootb-supply-chain-testing이 적용되었음을 확인합니다.
+
+### 4) Grype overlay 적용
+실습 환경은 custom CA를 사용하기 때문에 Grype scanner를 사용하기 위한 추가적인 설정이 필요합니다. <br/>
+먼저 tap-values.yaml에 다음 코드를 추가합니다.
+
+~~~
+package_overlays:
+  - name: "grype"
+    secrets:
+      - name: "grype-offline"
+~~~
+
+Jumpbox의 ~/tap-install/supplychain_test_scanning/grype/patch.yaml 파일 중 GRYPE_DB_UPDATE_URL 항목을 수정합니다.
+~~~
+- name: GRYPE_DB_UPDATE_URL
+  value: https://toolbox-data.anchore.io/grype/databases/listing.json
+~~~
+
+수정된 파일을 적용합니다. 
+~~~
+kubectl apply -f patch.yaml
+~~~
+
+다음 명령어를 실행해 annotate를 추가합니다.
+
+~~~
+kubectl annotate pkgi tap ext.packaging.carvel.dev/ytt-paths-from-secret-name.1=grype-offline -n tap-install
+~~~
 
 
