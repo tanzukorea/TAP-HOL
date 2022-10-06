@@ -43,7 +43,6 @@ tanzu apps workload create tanzu-java-web-app \
 ### 2. 로그 확인
 이제 워크로드가 잘 생성되고 있는지 다음 명령어를 이용해서 확인해 봅니다.
 <br/>
-**주의 : 아래 spring cloud gateway의 설정 중 숫자가 들어가는 부분은 본인이 할당받은 id 숫자를 사용합니다. 실습생들끼리 워크로드가 섞이지 않도록 워크로드 명을 주의해서 작성합니다.** <br/>
 > 워크로드 목록 조회
 ```cmd
 tanzu apps workload list
@@ -80,7 +79,10 @@ kubectl get pod
 
 
 로컬 PC에서 앱 호출을 확인하기 위해 /etc/hosts에 아래와 같이 추가하겠습니다.
+
+```cmd
 10.220.58.104 tanzu-java-web-app.default.tanzukr.com
+```
 
 이제 앱을 호출해 보도록 하겠습니다.
 
