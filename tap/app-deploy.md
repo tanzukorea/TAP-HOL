@@ -2,16 +2,14 @@
 
 본 과정에서는 TAP (Tanzu Application Platform)를 이용하여 쉽게 애플리케이션을 배포하는 방법에 대해 학습합니다.
 
-* tanzu-java-web-app accelerator를 본인의 로컬로 다운로드 합니다.
-* 개인 Git 저장소에 업로드 합니다. 
 * Tanzu CLI 명령을 실행하여 앱을 배포합니다.
 * 앱의 빌드 및 런타임 로그를 봅니다.
 * 브라우저에서 배포된 앱을 확인합니다.
 * TAP GUI에서 워크로드 등록하고 조회합니다.
+* tanzu-java-web-app accelerator를 본인의 로컬로 다운로드 합니다.
+* 개인 Git 저장소에 업로드 합니다. 
+* TAP GUI에서 app live view를 보기 위한 app을 배포합니다.
 
-
-
-### tanzu-java-web-app accelerator 다운로드 및 Git 래포지토리 업로드
 
 
 
@@ -21,7 +19,7 @@
 * workload 파일을 이용하여 생성
 
 이번 랩에서는 tanzu CLI 파일을 작성하여 워크로드를 생성하는 방법으로 랩을 진행합니다.
-앱 소스는 아래 git에서 가져옵니다. 해당 git을 clone하여 각 개인의 github나 gitlab의 래퍼지토리를 복사하여 사용하고 해당 git url을 사용해도 괜찮습니다. 다음과 같이 workload.yaml 파일을 생성합니다.
+앱 소스는 아래 git에서 가져옵니다. 해당 git을 clone하여 각 개인의 github나 gitlab의 래퍼지토리를 복사하여 사용하거나 해당 git url을 사용해도 괜찮습니다. 다음과 같이 cmd 파일을 실행합니다.
 <br/>
 **주의 : namespace는 앞에서 워크로드 배포를 위한 개발자용 네임스페이스 구성시 설정했던 namespace로 사용합니다.** <br/>
 
@@ -98,7 +96,7 @@ kubectl get pod
 ```
 ![](../images/tap-06.png)
 
-### 4. 그 밖의 tanzu 명령어
+### 3. 그 밖의 tanzu 명령어
 > 워크로드 삭제
 ```cmd
 tanzu apps workload delete tanzu-java-web-app
@@ -108,7 +106,7 @@ tanzu apps workload delete tanzu-java-web-app
 
 https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-cli-plugins-apps-command-reference.html
 
-### 5. TAP GUI 접속
+### 4. TAP GUI 접속
 다음 링크를 클릭하여 TAP GUI에 접속합니다.
 
 URL: http://tap-gui.tanzukr.com/
@@ -117,7 +115,7 @@ URL: http://tap-gui.tanzukr.com/
 
 <img src="/images/catalog1.png" width="50%" height="50%" />
 
-### 6. TAP GUI에서 워크로드 등록
+### 5. TAP GUI에서 워크로드 등록
 
 홈 화면에 접속하였습니다. 이전에 생성한 워크로드 등록을 위하여 "REGISTRY ENTITY" 버튼을 클릭합니다.
 ![](../images/catalog2.png)
@@ -134,7 +132,7 @@ URL: https://github.com/tanzukorea/tanzu-java-web-app/blob/main/catalog-hol/cata
 이제 컴포넌트 등록이 완료되었습니다.
 ![](../images/catalog5.png)
 
-### 7. TAP GUI에서 워크로드 조회
+### 6. TAP GUI에서 워크로드 조회
 홈 메뉴로 돌아가서, 내가 생성한 워크로드가 등록되었는지 확인하고, 워크로드 명을 클릭하여 워크로드를 조회합니다.
 ![](../images/catalog6.png)
 
@@ -149,3 +147,61 @@ URL: https://github.com/tanzukorea/tanzu-java-web-app/blob/main/catalog-hol/cata
 
 계층 구조를 가진 다양한 리소스들을 확인할 수 있습니다.
 ![](../images/catalog10.png)
+
+
+### 7. accelerator 다운로드 및 개인 Git 저장소에 업로드 
+TAP-GUI의 accelerator로 메뉴로 접속하여  "CHOOSE" 버튼을 클릭합니다.
+![](../images/acc-01.png)
+
+Name, Prefix 값을 입력하고 "NEXT" 버튼을 클릭합니다.
+![](../images/acc-02.png)
+
+"GENERATE ACCELERATOR" 버튼을 클릭합니다.
+![](../images/acc-03.png)
+
+"DOWNLOAD ZIP FILE" 버튼을 클릭하고, 로컬 PC로 다운로드를 확인합니다.
+![](../images/acc-04.png)
+
+GITHUB에서 아래와 같이 repository를 생성합니다.
+![](../images/acc-05.png)
+
+압축을 푼후 해당 폴더로 들어온후, 아래와 같이 위에서 생성한 저장소로 업로드 합니다.
+
+`
+```cmd
+git init
+git add --all
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/kshong05311129/tanzu-java-web-app-2.git(본인의 git repository 경로)
+git push -u origin main
+```
+![](../images/acc-06.png)
+
+
+위 작업후 github repository를 접속하면 정상적으로 소스파일이 업로드 됨을 확인할 수 있습니다.
+![](../images/acc-07.png)
+
+
+### 8. APP LIVE VIEW 조회를 위한 워크로드 배포
+
+git-repo는 위에서 생성한 git https 경로를 가져옵니다. 다음과 같이 cmd 파일을 실행합니다.
+<br/>
+**주의 : namespace는 앞에서 워크로드 배포를 위한 개발자용 네임스페이스 구성시 설정했던 네임스페이스로 사용합니다.** <br/>
+
+`
+```cmd
+tanzu apps workload create tanzu-java-web-app-live-view \
+--git-repo https://github.com/kshong05311129/tanzu-java-web-app2 \
+--git-branch main \
+--type web \
+--label app.kubernetes.io/part-of=tanzu-java-web-app-live-view \
+--label tanzu.app.live.view=true \
+--label tanzu.app.live.view.application.name=tanzu-java-web-app-live-view \
+--annotation autoscaling.knative.dev/minScale=1 \
+--yes \
+--namespace default
+```
+
+![](../images/tap-live-view01.png)
+위와 같은 출력이 나타나면 "y" 를 입력하고 계속해서 워크로드 생성을 진행합니다.
