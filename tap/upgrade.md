@@ -94,3 +94,13 @@ tanzu apps workload create tanzu-java-web-app-new-ver \
 ![](../images/tap-1.3.0-2.png)
 
 다음은 supply chain을 testing_scanning으로 변경했을 때 결과입니다.
+![](../images/tap-1.3.0-test-scan.png)
+
+
+## 7. 1.3.0에서 새로 추가된 GUI 메뉴 확인
+Tanzu Application Platform 1.3.0에는 Security Analysis라는 새로운 메뉴가 추가되었습니다. 해당 메뉴는 워크로드 빌드 시에 감지된 취약점들을 visualization 시킨 것입니다.
+아래 메뉴로 이동합니다.
+![](../images/tap-new-menu.png)
+
+사진과 같이 배포 시에 발견된 취약점들을 Severity에 따라, 정책 위반 여부에 따라 그래프로 확인 가능합니다.
+![](../images/tap-1.3.0-cve.png)
