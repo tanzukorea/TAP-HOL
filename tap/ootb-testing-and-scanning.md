@@ -47,14 +47,25 @@ kubectl apply -f tekton_pipeline.yaml)
 
 yaml 파일에 정의된 step을 통해 개발자 워크로드에 표시된 repository 에서 코드를 가져오고 repository 내에서 테스트를 실행합니다. Tekton 파이프라인의 단계는 구성 변경이 가능하며 개발자가 코드를 테스트하는 데 필요한 추가 항목을 추가할 수 있습니다.
 
-다음 단계로는 배포된 워크로드를 새로운 supply chain과 연결 해야 합니다. 다음 명령어를 통해 수행합니다.
+다음 단계로는 워크로드를 새로운 supply chain과 연결 해야 합니다. 다음 명령어를 통해 수행합니다.
 
 ~~~
-tanzu apps workload create tanzu-java-web-app-test \
+tanzu apps workload create tanzu-java-web-app \
   --git-repo https://github.com/sample-accelerators/tanzu-java-web-app \
   --git-branch main \
   --type web \
+  --label app.kubernetes.io/part-of=tanzu-java-web-app \
   --label apps.tanzu.vmware.com/has-tests=true \
-  --yes
+  --yes \
+  --namespace default
 ~~~
+
+배포가 끝난 후 tanzu apps workload get 명령어로 조회하면 이전과 다르게 Resource에 source-tester가 추가되었으며 pod에도 test-pod가 succeed 되었음을 확인 가능합니다.
+![](../images/supply_chain_test_result.png)
+
+GUI로 이동해 Supply Chain을 확인합니다.
+![](../images/supply_chain_test_gui_01.png)
+
+각 테스트의 id를 클릭해 detail 정보를 확인할 수 있습니다.
+![](../images/supply_chain_test_gui_02.png)
 
