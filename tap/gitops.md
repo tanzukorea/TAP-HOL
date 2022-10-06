@@ -6,7 +6,8 @@
 
 ### 1) HTTP(S) Basic-auth
 구성 정보를 담을 repository가 https:// 또는 http:// 를 사용한다면, Kubernetes 시크릿은 다음과 같이 해당 repository에 대한 credential을 제공해야 합니다. <br/>
-다음 Yaml 파일 예시를 참고하여 작성합니다. username과 password (password 대신 git token 사용 가능)에는 본인의 계정 정보를 사용합니다. <br/>
+다음 Yaml 파일 예시를 참고하여 작성합니다. GIT-USERNAME에는 본인의 github id, GIT-PASSWORD에는 본인의 github token 정보를 사용합니다. <br/>
+
 ~~~
 apiVersion: v1
 kind: Secret
@@ -71,5 +72,24 @@ tanzu package installed update tap -p tap.tanzu.vmware.com -v 1.2.1 --values-fil
 ~~~
 
 ### 4) 애플리케이션 배포
+다음을 실행하여 애플리케이션을 배포합니다
+~~~
+tanzu apps workload create tanzu-java-web-app-gitops-2 \
+  --git-branch main \
+  --git-repo https://github.com/tanzukorea/tanzu-java-web-app \
+  --label app.kubernetes.io/part-of=tanzu-java-web-app \
+  --type web
+~~~
+
 
 ## 2. GitOps 적용된 내용 GUI에서 확인
+### 1) GUI의 Supply Chain 화면 접속
+Supply Chain으로 가면 이전과 달리 Config Writer와 Pull Config 사이에 "View Approvals"라는 버튼이 추가된 것을 확인할 수 있습니다. 해당 버튼을 클릭합니다.
+![](../images/gitops-approval-1.png)
+
+아래의 Approve a Request 버튼을 클릭하면 Github로 연결됩니다.
+![](../images/gitops-approval-3.png)
+
+위 사진과 같이 설정했던 리뷰 문구가 표시되고, commit 내용 및 변경된 파일 확인, comment 작성, merge 수행 등이 가능합니다. <br/>
+
+
