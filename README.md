@@ -39,17 +39,23 @@ OOTB Basic Supply Chain을 Testing and Scanning으로 변경합니다.
 - [Supply Chain - Testing and Scanning](./tap/ootb-testing-and-scanning.md)
 - [GitOps](./tap/gitops.md)
 
-## 6. TAP Learning Center
-TAP에서 제공하는 Learning Center를 확인합니다
-- [Learning Center](./tap/learning-center.md)
-
-## 7. Upgrade
+## 6. Upgrade
 현재 설치되어 있는 Tanzu Application Platform v1.2.1을 v1.3.0으로 업그레이드 합니다.
 - [업그레이드](./tap/upgrade.md)
 
+<<<<<<< HEAD
 ## 8. 개발 환경 개선을 위한 IDE 경험
 - [IDE 설치하기](./tap/ide.md)
 - [동적 배포와 원격 디버깅](./tap/hotdeploy_debug.md)
+=======
+## 7. TAP Learning Center
+TAP에서 제공하는 Learning Center를 확인합니다
+- [Learning Center](./tap/learning-center.md)
+
+## 8. 개발 환경 개선을 위한 IDE 경험 (Demo)
+- IDE에서 앱 동적 배포하기
+- 원격 디버깅
+>>>>>>> 76943e193e95c91d9dd6a89af97224c444ce8cc1
 
 ## 9. Optional Lab
 - [인터넷 차단 환경 구성](./tap/full-air-gapped.md)
