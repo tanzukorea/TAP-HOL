@@ -150,6 +150,21 @@ tanzu apps workload apply -f workload.yaml
 
 
 ### 5. Accelerator 다운로드 및 개인 Git 저장소에 업로드 
+다음 링크를 클릭하여 TAP GUI에 접속합니다.
+
+URL: http://tap-gui.tanzukr.com/
+
+최초 접속 화면은 다음과 같습니다. "Enter" 버튼을 클릭합니다.
+<img src="/images/catalog1.png" width="50%" height="50%" />
+
+도매인 설정이 되어 있지 않다면 로컬 PC의 /etc/hosts에 ADDRESS,HOSTS를 추가합니다.
+```cmd
+kubectl get httpproxy -n tap-gui
+```
+![](../images/acc-001.png)
+
+
+
 TAP-GUI의 accelerator로 메뉴로 접속하여  "CHOOSE" 버튼을 클릭합니다.
 ![](../images/acc-01.png)
 
