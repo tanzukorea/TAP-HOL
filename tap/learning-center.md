@@ -6,7 +6,7 @@ Learning Center를 실행하려면 Kubernetes가 필요하며 사용자에게 Ku
 
 
 
-Learning Center의 워크샵의 URL를 확인해보겠습니다.
+Learning Center의 워크샵의 URL를 아래 cmd를 실행하여 확인해보겠습니다.
 
 `
 ```cmd
