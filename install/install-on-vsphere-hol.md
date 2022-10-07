@@ -15,6 +15,14 @@
 
 > **_NOTE:_** 아래 가이드는 주어진 점프박스를 사용했을 때 기준으로 작성되었습니다. 일반적인 vSphere air-gap 환경에서의 설치는 다음 문서를 참고해 주시기 바랍니다.    [링크](https://github.com/tanzukorea/tanzu-install/blob/main/tap/airgapped/installation-on-vsphere.md)
 
+- TKG Workload Cluster scale
+tanzu cluster list 명령어로 조회 시, 현재 워크로드 클러스터의 worker node 갯수가 1개로 설정되어 있습니다. TAP 실습을 위한 리소스 확보를 위해 worker node를 3개로 변경하는 작업을 먼저 시행합니다.
+~~~
+tanzu cluster scale cluster1 -w 3
+~~~
+
+이후 다시 tanzu cluster list 를 수행해 클러스터가 성공적으로 scale 되어 running 상태임을 확인 후 다음 단계로 이동합니다.
+
 <br/>
 
 ## 1. 설치 환경 구성
