@@ -48,8 +48,8 @@ TAP에서 제공하는 Learning Center를 확인합니다
 - [업그레이드](./tap/upgrade.md)
 
 ## 8. 개발 환경 개선을 위한 IDE 경험
-- IDE에서 앱 동적 배포하기
-- 원격 디버깅
+- [IDE 설치하기](./tap/ide.md)
+- [동적 배포와 원격 디버깅](./tap/hotdeploy_debug.md)
 
 ## 9. Optional Lab
 - [인터넷 차단 환경 구성](./tap/full-air-gapped.md)
