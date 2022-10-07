@@ -27,7 +27,13 @@ jumpbox 서버의 tap 계정에 있는 .kube/config 파일을 다운로드 하�
     tanzu apps workload list
     ```
 5. JDK 설치<br>
-JAVA_HOME 환경변수 설정
+    
+    JDK8 까지는 Oracle JDK를 무료로 다운로드 받으실 수 있고, 이 후의 버전은 openjdk를 다운로드 받아 설치하면 됩니다.
+    이 Lab에서는 윈도우용 Oracle JDK 8 U341를 다음의 경로에서 다운로드 받으실 수 있습니다.
+    
+    [Windows 64bit JDK 8 다운로드](https://onevmw.sharepoint.com/:u:/r/teams/TAPHOLWorkshop/Shared%20Documents/General/tap1.3.0/jdk-8u341-windows-x64.exe?csf=1&web=1&e=TqW8Iz)
+
+    설치후에는 윈도우 환경변수로 JAVA_HOME을 설정하셔야 합니다.
 
 
 6. Tilt 설치<br>
