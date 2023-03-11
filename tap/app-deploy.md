@@ -182,7 +182,6 @@ Name, Prefix 값을 입력하고 "NEXT" 버튼을 클릭합니다.
 
 tanzu-java-web-app.zip파일을 압축을 푼 후, tanzu-java-web-app 경로에서 아래와 같이 cmd를 실행하여 위에서 생성한 저장소로 업로드 합니다.
 
-`
 ```cmd
 git init
 git add --all
@@ -224,7 +223,6 @@ git-repo는 위에서 생성한 git https 경로를 가져옵니다. 다음과 �
 <br/>
 **주의 : --git-repo는 5번 실습에서 업로드한 각 개인의 git-repo를 넣습니다..** <br/>
 
-`
 ```cmd
 tanzu apps workload create tanzu-java-web-app-live-view \
 --git-repo https://github.com/kshong05311129/tanzu-java-web-app2 \
