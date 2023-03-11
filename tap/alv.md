@@ -29,5 +29,5 @@ Application Live View에 접속하는 순서는 다음과 같습니다.
 
 #### 2) Application Live View 둘러보기
 
-- [간단한 Application Live View 설명](./tap/gui.md#2-application-live-view)
+- [간단한 Application Live View 설명](./gui.md#2-application-live-view)
 - 자세한 사항은 [VMware 영문 매뉴얼](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/tap-gui-plugins-app-live-view-springboot.html)을 참고하시기 바랍니다.
