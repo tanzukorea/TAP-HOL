@@ -36,6 +36,7 @@ tanzu package installed update tap --package-name tap.tanzu.vmware.com --version
 
 <br/>
 기존에 등록된 accleator나 fragment가 있는지 조회합니다.
+
 ```cmd
 tanzu acc list
 tanzu acc frag list
