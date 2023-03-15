@@ -38,7 +38,7 @@ tap_gui:
 * PG-SQL-PASSWORD is the password of your PostgreSQL database
 
 
-![](.images/postgreSQL.png)
+![](./images/postgresql.png)
 
 
 
