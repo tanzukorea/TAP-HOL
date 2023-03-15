@@ -73,7 +73,8 @@ kubectl create secret generic git-https \
     --namespace accelerator-system \
     --from-literal=username=vmware \
     --from-literal=password=testtest
-    <br/>
+
+    
 secret/git-https created
 ```
 
