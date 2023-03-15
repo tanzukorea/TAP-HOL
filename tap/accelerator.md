@@ -10,6 +10,7 @@ Enterprise Architects는 조직의 개발자와 운영자에게 적합한 코드
 tap-values.yaml edit 합니다. 아래와 같이 tap-values.yaml에 있는 values을 apply 합니다.
 sample:incloud: false를 추가합니다. 해당 스키마를 추가하지 않으면 acclerator는 삭재 되지 않습니다.
 
+```cmd
 accelerator:
   domain: <your-domain>
   ingress:
@@ -25,6 +26,7 @@ accelerator:
   samples:
     include: false
 </span>
+```
 
 <br/>
 아래와 같이 tap-values.yaml을 update 합니다.
@@ -51,7 +53,8 @@ tanzu accelerator fragment delete <fragment-name>
 
 <br/>
 TAP GUI에서 accelerator 삭재가 되었는지 아래와 같이 확인 합니다.
-![](.images/accelerators-1.png)
+![](../images/accelerators-1.png)
+
 
 <br/>
 
@@ -65,16 +68,18 @@ kubectl create secret generic <your-secret-name>\
     --from-literal=username=<git-user> \
     --from-literal=password=<git-password>
 
-[예졔]
+
 kubectl create secret generic git-https \
     --namespace accelerator-system \
     --from-literal=username=vmware \
     --from-literal=password=testtest
+    <br/>
 secret/git-https created
 ```
 
 ### 3. accelerator와 fragment를 등록 해보겠습니다.
-각 개인의 private source repository로 아래 url를 clone하여 본인의 repository로 copy합니다. 해당 git url에는 여러 accelerator와 fragment가 등록되어 있습니다.
+각 개인의 private source repository로 아래 url를 clone하여 본인의 repository로 copy합니다. 
+해당 git url에는 여러 accelerator와 fragment가 등록되어 있습니다.
 url : https://github.com/vmware-tanzu/application-accelerator-samples
 
 
@@ -130,22 +135,20 @@ accelerator tanzu-java-web-app updated successfully
 
 <br/>
 accelerator와 fragment가 정상적으로 생성이 되었는지 아래와 같이 확인합니다.
+```cmd
 tanzu acc list
 NAME                 TAGS                      READY   REPOSITORY
-tanzu-java-web-app   [java spring web tanzu]   true    https://your-git-domain/your-repository-name/application-accelerator-samples:main:/tanzu-java-web-app
+tanzu-java-web-app   [java spring web tanzu]   true    https://your-git-domain/your-repository-name/accelerator:main:/tanzu-java-web-app
+```
 
+<br/>
+```cmd
 anzu acc frag list
 NAME           READY   REPOSITORY
-tap-workload   true    https://your-git-domain/your-repository-name/application-accelerator-samples/fragments:main:/tap-workload
-
+tap-workload   true    https://your-git-domain/your-repository-name/fragments:main:/tap-workload
+```
 
 <br/>
 TAP GUI에서 accelerator가 생성되 었는지 확인 해보겠습니다.
-![](.images/accelerators-2.png)
-
-
-
-
-
-
+![](../images/accelerators-2.png)
 
