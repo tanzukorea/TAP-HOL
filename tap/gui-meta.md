@@ -14,6 +14,7 @@ TAP GUI catalog는 catalog를 저장하기 위한 두 가지 접근 방식을 �
 ### 0. Overlay 구성
 tap-gui-db.yaml 파일은 아래 링크를 통해서 업로드 하였습니다. 
 해당 파일을 local에 다운롣 받은 후 다운로드 받은 위치로 변경하여 아래 cmd를 수행합니다.
+첨부파일 명 : tap-gui-db.yaml(https://github.com/tanzukorea/TAP-HOL/blob/main/install/tap-gui-db.yaml)
 
 ```cmd
 kubectl -n tap-install create secret generic tap-gui-db \
