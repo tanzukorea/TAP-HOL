@@ -36,10 +36,10 @@ OOTB Basic Supply Chain으로 설치된 TAP를 Testing and Scanning으로 변경
 구성 정보를 자동적으로 git repository에 push하도록 gitops 환경을 구성합니다.
 - [GitOps](./tap/gitops.md)
 
-## 5. 개발 환경 개선을 위한 IDE
+## 5. 개발자 - IDE
 - [VS Code IDE 설치하기](./tap/ide.md)
 
-## 6. 동적 배포와 원격 디버깅
+## 6. 개발자 - 동적 배포와 원격 디버깅
 - [동적 배포와 원격 디버깅](./tap/hotdeploy_debug.md)
 
 ## 7. Accelerator 커스터마이징
