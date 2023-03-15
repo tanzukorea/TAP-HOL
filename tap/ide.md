@@ -13,7 +13,7 @@ TAP에서 제공하는 개발자 IDE Plugin을 실습하는 Lab입니다. TAP에
     - Docker Desktop 설치 : https://www.docker.com/products/docker-desktop/
 
 2. CLI 설치<br>
-kubectl 설치 : https://kubernetes.io/docs/tasks/tools/#kubectl
+kubectl 설치 : https://kubernetes.io/docs/tasks/tools/#kubectl<br>
 tanzu cli 설치 가이드 : (./tanzu-cli.md)
 
 3. kube config 파일 복사<br>
