@@ -21,16 +21,16 @@ tap-values.yaml edit 합니다. 아래와 같이 tap-values.yaml에 있는 value
 # ... existing tap-values.yaml above
 tap_gui:
  # ... existing tap_gui values
- app_config:
- backend:
- database:
- client: pg
- connection:
- host: PG-SQL-HOSTNAME
- port: 5432
- user: PG-SQL-USERNAME
- password: PG-SQL-PASSWORD
- ssl: {rejectUnauthorized: false} # Set to true if using SSL
+app_config:
+  backend:
+    database:
+      client: pg
+      connection:
+        host: PG-SQL-HOSTNAME
+        port: 5432
+        user: PG-SQL-USERNAME
+        password: PG-SQL-PASSWORD
+        ssl: {rejectUnauthorized: false} # Set to true if using SSL
 ```
 
 * PG-SQL-HOSTNAME is the host name of your PostgreSQL database
