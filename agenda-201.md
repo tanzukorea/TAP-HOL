@@ -25,7 +25,7 @@ TAP 설치를 위해서는 아래와 같은 Kubernetes Cluster가 필요합니�
 
 ## 2. TAP GUI 둘러보기
 - [catalog 등록](./tap/catalog.md)
-- Postgres 연결해서 TAP GUI 메타 정보 저장
+- [Postgres 연결해서 TAP GUI 메타 정보 저장](./tap/gui-meta.md)
 - [Application Live View 둘러보기](./tap/alv.md)
 
 ## 3. Supply Chain 구성
