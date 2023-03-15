@@ -13,12 +13,11 @@ TAP에서 제공하는 개발자 IDE Plugin을 실습하는 Lab입니다. TAP에
     - Docker Desktop 설치 : https://www.docker.com/products/docker-desktop/
 
 2. CLI 설치<br>
-tanzu net 에서 다운로드
-kubectl 설치 TKG1.5.4
-tanzu cli 설치 TAP 1.2 : https://network.pivotal.io/products/tanzu-application-platform/
+kubectl 설치 : https://kubernetes.io/docs/tasks/tools/#kubectl
+tanzu cli 설치 가이드 : (./tanzu-cli.md)
 
 3. kube config 파일 복사<br>
-jumpbox 서버의 tap 계정에 있는 .kube/config 파일을 다운로드 하여 local pc의 user 계정에 동일한 위치에 복사를 합니다.
+tap에 kubectl로 접속하기 위한 .kube/config 파일을 다운로드 하여 local pc의 user 계정에 동일한 위치에 복사를 합니다.
 
 4. kubectl 확인<br>
 아래 명령어를 실행해서 TAP에 정상적으로 접속이 되는지 확인합니다.
