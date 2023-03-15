@@ -16,7 +16,7 @@ TAP GUI catalog는 catalog를 저장하기 위한 두 가지 접근 방식을 �
 tap-values.yaml edit 합니다. 아래와 같이 tap-values.yaml에 있는 values을 apply 합니다.
 
 
-`
+
 ```cmd
 # ... existing tap-values.yaml above
 tap_gui:
@@ -38,7 +38,7 @@ tap_gui:
 * PG-SQL-PASSWORD is the password of your PostgreSQL database
 
 
-![](../images/postgreSQL.png)
+![](.images/postgreSQL.png)
 
 
 
@@ -53,7 +53,8 @@ ION-NUMBER --values-file tap-values.yaml -n tap-install
 <br/>
 
 예시
-`
+
+
 ```cmd
 $ tanzu package installed update tap --package-name tap.tanzu.vmware.com --version 1.
 4.2 --values-file tap-values.yaml -n tap-install
@@ -65,4 +66,8 @@ $ tanzu package installed update tap --package-name tap.tanzu.vmware.com --versi
 / Waiting for 'PackageInstall' reconciliation for 'tap'
 Updated package install 'tap' in namespace 'tap-install'
 ```
+
+
+
+
 
