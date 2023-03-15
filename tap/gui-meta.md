@@ -11,8 +11,21 @@ TAP GUI catalog는 catalog를 저장하기 위한 두 가지 접근 방식을 �
 * PostgreSQL database: Tanzu Application Platform 패키지 외부에 존재하는 SQL 데이터베이스. PostgreSQL를 사용하며, 데이터베이스는 Git 위치와 UI 수동 엔티티 등록의 모든 카탈로그 데이터를 영구적으로 저장합니다.
 
 
+### 0. Overlay 구성
+tap-gui-db.yaml 파일은 아래 링크를 통해서 업로드 하였습니다. 
+해당 파일을 local에 다운롣 받은 후 다운로드 받은 위치로 변경하여 아래 cmd를 수행합니다.
 
-### 1.PostgreSQL database 구성
+```cmd
+kubectl -n tap-install create secret generic tap-gui-db \
+  -o yaml \
+  --dry-run=client \
+  --from-file=/var/tmp/tkgm/tap-install/tap-gui-db.yaml \
+  | kubectl apply -f-
+```
+
+
+
+### 1. PostgreSQL database 구성
 tap-values.yaml edit 합니다. 아래와 같이 tap-values.yaml에 있는 values을 apply 합니다.
 
 
