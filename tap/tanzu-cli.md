@@ -1,5 +1,5 @@
 ## Tanzu CLI 설치하기
-윈도우즈 이외에는 아래의 문서의 Guide를 참고하시기 바랍니다.
+윈도우즈 이외에는 아래의 문서의 Guide를 참고하시기 바랍니다.<br>
 https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/install-tanzu-cli.html#cli-and-plugin
 
 ### tanzu cli download 
