@@ -22,10 +22,8 @@ accelerator:
   server:
     service_type: "ClusterIP"
     watched_namespace: "accelerator-system"
-<span style="color:red">  
   samples:
     include: false
-</span>
 ```
 
 <br/>
@@ -52,6 +50,7 @@ tanzu accelerator fragment delete <fragment-name>
 ```
 
 <br/>
+
 TAP GUI에서 accelerator 삭재가 되었는지 아래와 같이 확인 합니다.
 ![](../images/accelerators-1.png)
 
@@ -119,14 +118,14 @@ spec:
 ```
 
 위 사항을 확인한 후, kubectl apply -f /your_path/tanzu-java-web-app-acc.yaml 적용합니다.
-<br/>
 ```cmd
 kubectl apply -f /var/tmp/tkgm/tap-install/tanzu-java-web-app-acc.yaml
 fragment.accelerator.apps.tanzu.vmware.com/tap-workload created
 accelerator.accelerator.apps.tanzu.vmware.com/tanzu-java-web-app created
 ```
-
 <br/>
+
+
 accelerator를 아래와 같이 update합니다.
 ```cmd
 tanzu acc update tanzu-java-web-app --reconcile
@@ -134,6 +133,7 @@ accelerator tanzu-java-web-app updated successfully
 ```
 
 <br/>
+
 accelerator와 fragment가 정상적으로 생성이 되었는지 아래와 같이 확인합니다.
 ```cmd
 tanzu acc list
@@ -141,7 +141,6 @@ NAME                 TAGS                      READY   REPOSITORY
 tanzu-java-web-app   [java spring web tanzu]   true    https://your-git-domain/your-repository-name/accelerator:main:/tanzu-java-web-app
 ```
 
-<br/>
 ```cmd
 anzu acc frag list
 NAME           READY   REPOSITORY
@@ -149,6 +148,8 @@ tap-workload   true    https://your-git-domain/your-repository-name/fragments:ma
 ```
 
 <br/>
+
+
 TAP GUI에서 accelerator가 생성되 었는지 확인 해보겠습니다.
 ![](../images/accelerators-2.png)
 
