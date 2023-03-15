@@ -80,7 +80,33 @@ $ tanzu package installed update tap --package-name tap.tanzu.vmware.com --versi
 Updated package install 'tap' in namespace 'tap-install'
 ```
 
+<br/>
 
+### 3. psql 접속 및 데이터베이스 목록 조회
 
+```cmd
+k exec -it tap-gui-db-56fbf4d89-72bv8 bash -n tap-gui
+kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
+Defaulted container "postgres" out of: postgres, remove-lost-found (init)
+tap-gui-db-56fbf4d89-72bv8:/# psql -U tap-gui
+psql (14.6)
+Type "help" for help.
 
+tap-gui=# \list
+                                          List of databases
+            Name             |  Owner  | Encoding |  Collate   |   Ctype    |    Access privileges
+-----------------------------+---------+----------+------------+------------+-------------------------
+ backstage_plugin_auth       | tap-gui | UTF8     | en_US.utf8 | en_US.utf8 |
+ backstage_plugin_catalog    | tap-gui | UTF8     | en_US.utf8 | en_US.utf8 |
+ backstage_plugin_scaffolder | tap-gui | UTF8     | en_US.utf8 | en_US.utf8 |
+ backstage_plugin_search     | tap-gui | UTF8     | en_US.utf8 | en_US.utf8 |
+ postgres                    | tap-gui | UTF8     | en_US.utf8 | en_US.utf8 |
+ tap-gui                     | tap-gui | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0                   | tap-gui | UTF8     | en_US.utf8 | en_US.utf8 | =c/"tap-gui"           +
+                             |         |          |            |            | "tap-gui"=CTc/"tap-gui"
+ template1                   | tap-gui | UTF8     | en_US.utf8 | en_US.utf8 | =c/"tap-gui"           +
+                             |         |          |            |            | "tap-gui"=CTc/"tap-gui"
+(8 rows)
 
+tap-gui=#
+```
