@@ -43,5 +43,5 @@ OOTB Basic Supply Chain으로 설치된 TAP를 Testing and Scanning으로 변경
 - [동적 배포와 원격 디버깅](./tap/hotdeploy_debug.md)
 
 ## 7. Accelerator 커스터마이징
-- [Accelerator 커스터마이징]()
+- [Accelerator 커스터마이징](./tap/accelerator.md)
 
