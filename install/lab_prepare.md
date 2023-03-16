@@ -21,7 +21,7 @@
 1. 개발 환경을 위해 Local PC에 아래의 툴들을 설치합니다.
     - Visual Studio Code 설치 : https://code.visualstudio.com/download
     - Git 설치 : https://git-scm.com/downloads
-    - Docker Desktop 설치 : https://www.docker.com/products/docker-desktop/\
+    - Docker Desktop 설치 : https://www.docker.com/products/docker-desktop/
 
 2. 본 Lab에서는 개발자 소스 저장소로 Github을 사용합니다. github 계정을 생성합니다.
     - Github 계정 생성 : https://github.com
