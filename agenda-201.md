@@ -1,5 +1,5 @@
 # TAP Hands-On-Lab 201
-![](./images/taphol_log.jpeg)
+![](./images/taphol_log.png)
 
 ## Objective
 
