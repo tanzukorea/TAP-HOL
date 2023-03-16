@@ -12,7 +12,7 @@ TAP 설치를 위해서는 아래와 같은 Kubernetes Cluster가 필요합니�
 |---|---|
 |TAP|1.4.2|
 - 3개의 클러스터에 profile이 full, build, run인 TAP 각각 설치
-- cluster 이름은 profile이름과 full,build,run으로 각각 설정합니다.
+- cluster 이름은 profile이름과 동일하게 full, build, run으로 각각 지정합니다.
 - TAP 설치는 [여기](./install/install-on-vsphere-hol.md) 참조
 
 ## 워크로드 배포 테스트
