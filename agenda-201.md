@@ -1,9 +1,16 @@
 # TAP Hands-On-Lab 201
 ![](./images/taphol_logo.png)
 
+## Introduction
+본 핸즈온 문서는 Tanzu Application Platform에서 제공하는 개발자 포탈인 TAP GUI를 살펴보고, 내장되어 있는 supply chain을 이용해 쉽게 application 워크로드를 배포하는 실습을 해보게 됩니다. 또한 멀티클러스터 환경에서 배포하기 위한 방법으로 gitops를 이용하여 승인과정을 거쳐 운영 클러스터에 배포를 하는 과정을 실습을 합니다. 마지막으로 개발자들을 생산성 향상을 위해 제공하는 IDE 플러그인을 사용하여 워크로드를 배포하는 부분을 실습합니다.
+
 ## Objective
+- 멀티 클러스터 환경에서의 TAP 활용방법의 이해
+- Application의 자동화된 배포를 위한 SupplyChain
+- 개발자 생산성 향상을 위한 개발툴 사용 방법
 
 ## Overview
+
 
 ## 설치 제품
 본 가이드에서 다루는 Tanzu 설치 솔루션 및 버전은 다음과 같습니다.
