@@ -1,5 +1,9 @@
-# TAP HOL 201
-Tanzu Application Platform Hands-On-Labs 201 페이지 입니다.
+# TAP Hands-On-Lab 201
+![](./images/taphol_log.jpeg)
+
+## Objective
+
+## Overview
 
 ## 설치 제품
 본 가이드에서 다루는 Tanzu 설치 솔루션 및 버전은 다음과 같습니다.
@@ -7,39 +11,29 @@ Tanzu Application Platform Hands-On-Labs 201 페이지 입니다.
 |---|---|
 |TAP|1.4.2|
 
-TAP 설치를 위해서는 아래와 같은 Kubernetes Cluster가 필요합니다. 이 Lab에서는 TKG를 이용해서 진행합니다.
-- Kubernetes v1.23 ~ v1.25 필요
-- AKS / EKS / GKE / Minikube / TKGm / TKGs (vSphere with Tanzu v7.0 U3<font color="red">f</font>)
+## 0. 사전 준비 사항
+- [Lab 환경을 위한 사전 준비사항](./install/lab_prepare.md)
 
-
-## 0. 사전 준비
-- TAP 설치
-  - 2개의 클러스터에 profile이 full, run인 TAP 각각 설치
-  - TAP 설치는 [여기](./install/install-on-vsphere-hol.md) 참조
-- 워크로드 배포 테스트
-  - Supply Chain: basic으로 설치된 TAP에서 워크로드 배포
-- [VS Code IDE 설치하기](./tap/ide.md)
-
-## 1. 개발자용 네임스페이스 설정
-- [개발자용 네임스페이스 구성](./install/dev-namespace.md)
-
-## 2. TAP GUI 둘러보기
+## 1. TAP GUI
 - [catalog 등록](./tap/catalog.md)
 - [Postgres 연결해서 TAP GUI 메타 정보 저장](./tap/gui-meta.md)
 - [Application Live View 둘러보기](./tap/alv.md)
 
-## 3. Supply Chain 구성
+## 2. Supply Chain 구성
 OOTB Basic Supply Chain으로 설치된 TAP를 Testing and Scanning으로 변경합니다. 
 - [Supply Chain - Testing and Scanning](./tap/ootb-testing-and-scanning.md)
 
-## 4. GitOps 구성
+## 3. 멀티클러스터 환경을 위한 GitOps 구성 
 구성 정보를 자동적으로 git repository에 push하도록 gitops 환경을 구성합니다.
-- [GitOps](./tap/gitops.md)
+- [GitOps 구성하기](./tap/gitops.md)
 
-## 5. 개발자 - IDE
-- [VS Code IDE 설치하기](./tap/ide.md)
+## 4. 워크로드 배포를 위한 네임스페이스 설정
+- [워크로드 배포를 위한 네임스페이스 설정하기](./install/dev-namespace.md)
 
-## 6. 개발자 - 동적 배포와 원격 디버깅
+## 5. 개발 환경 구성
+- [개발 환경 구성하기](./tap/ide.md)
+
+## 6. 개발 환경에서 동적배포와 원격 디버깅
 - [동적 배포와 원격 디버깅](./tap/hotdeploy_debug.md)
 
 ## 7. Accelerator 커스터마이징
