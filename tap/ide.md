@@ -49,9 +49,12 @@ iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.co
 7. host 파일 등록
 
 TAP와 DNS를 공유하고 있으면 아래와 같은 설정은 필요 없지만, DNS가 없는 경우에는 아래의 내용을 hosts 파일에 등록해야 합니다.<br>
-C:\Windows\System32\drivers\etc\hosts에 아래 등록
+```
+C:\Windows\System32\drivers\etc\hosts
+```
+에 아래 등록
 
-    ```
+```
     jumpbox 서버IP    harbor.도메인명
     avi_vip    tap-gui.도메인명
     ```
