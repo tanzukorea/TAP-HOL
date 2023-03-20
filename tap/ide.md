@@ -11,6 +11,10 @@ TAP에서 제공하는 개발자 IDE Plugin을 실습하는 Lab입니다. TAP에
     - Visual Studio Code 설치 : https://code.visualstudio.com/download
     - Git 설치 : https://git-scm.com/downloads
     - Docker Desktop 설치 : https://www.docker.com/products/docker-desktop/
+        - 주의사항 : Docker Desktop을 설치하기 위해서는 OS에서 VT-x가 enable되어 있어야 합니다. VT-x는 CMOS에서 enable해야 합니다. Local PC가 윈도우인 경우에는 제어판->Windows Feautres에서 Hyper-v가 활성화 되어 있는지 확인하시면 됩니다.
+            https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements<br>
+            만약 Local PC 대신 가상 vSphere VM에서 사용할 경우에는 VM->CPU->가상화 enable을 하셔야 합니다.
+            https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html
 
 2. CLI 설치<br>
 kubectl 설치 : https://kubernetes.io/docs/tasks/tools/#kubectl<br>
@@ -44,12 +48,11 @@ iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.co
 
 7. host 파일 등록
 
-    이전 LAB을 정상적으로 끝낸 경우에는 아래의 설정은 이미 되어 있을 것입니다. <br>
 TAP와 DNS를 공유하고 있으면 아래와 같은 설정은 필요 없지만, DNS가 없는 경우에는 아래의 내용을 hosts 파일에 등록해야 합니다.<br>
 C:\Windows\System32\drivers\etc\hosts에 아래 등록
     ```
-    jumpbox 서버IP    harbor.tanzukr.com
-    avi_vip    tap-gui.tanzukr.com
+    jumpbox 서버IP    harbor.도메인명
+    avi_vip    tap-gui.도메인명
     ```
 
 8. CA certificate 등록
@@ -63,5 +66,10 @@ C:\Windows\System32\drivers\etc\hosts에 아래 등록
     윈도우에서는 아래의 명령어를 실행해서 OS에 certificate를 등록합니다.
     ```
     certutil -addstore -f "ROOT" ca.crt
-    docker login harbor.tanzukr.com
+    ```
+    
+9. harbor에 로그인
+   credential을 local에 저장하기 위해 harbor에 로그인을 합니다. 이 crential은 local pc에서 source image를 업로드할때 사용하게 됩니다.
+    ```
+    docker login harbor.도메인
     ```
