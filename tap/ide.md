@@ -52,12 +52,11 @@ TAP와 DNS를 공유하고 있으면 아래와 같은 설정은 필요 없지만
 ```
 C:\Windows\System32\drivers\etc\hosts
 ```
-에 아래 등록
-
+위 파일을 관리자 권한으로 연후에 아래의 내용을 입력합니다.
 ```
     jumpbox 서버IP    harbor.도메인명
     avi_vip    tap-gui.도메인명
-    ```
+```
 
 8. CA certificate 등록
 
