@@ -1,5 +1,13 @@
 # TAP HOL 101
+![](./images/taphol_logo.png)
+
+## Introduction
 Tanzu Application Platform Hands-On-Labs 101 페이지 입니다.
+
+## Objective
+- 인터넷 차단 환경에서 Tanzu Application Platform 설치 및 업그레이드
+- TAP GUI 살펴보기
+- IDE용 플러그인 기능 확인 및 워크로드 배포
 
 ## 설치 제품
 본 가이드에서 다루는 Tanzu 설치 솔루션 및 버전은 다음과 같습니다. 해당 버전에 맞는 브랜치를 선택해서 실습해 주세요. 
@@ -52,7 +60,6 @@ OOTB Basic Supply Chain을 Testing and Scanning으로 변경합니다.
 ## 8. TAP Learning Center
 TAP에서 제공하는 Learning Center를 확인합니다
 - [Learning Center](./tap/learning-center.md)
-
 
 ## 9. Optional Lab
 - [인터넷 차단 환경 구성](./tap/full-air-gapped.md)

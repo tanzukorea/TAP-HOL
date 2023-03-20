@@ -1,0 +1,33 @@
+profile: run
+
+ceip_policy_disclosed: true
+
+shared:
+  ingress_domain: run.${TAP_INGRESS_DOMAIN}
+  ca_cert_data: |
+    -----BEGIN CERTIFICATE-----
+    MIIFbjCCA1YCCQCz9VnyO8hNRjANBgkqhkiG9w0BAQ0FADB5MQswCQYDVQQGEwJV
+    ...
+    hoNdK+FGCAWdFj6mo0ZwPzMeZmxcC/7RRCo51j6e7o0q/mvxxAqLwask47b+miem
+    bfWeEus869PU/3ijqU4rVB4MYpEqavnQrJHG/U5eT1dItY+fCfI=
+    -----END CERTIFICATE-----
+
+contour:
+  envoy:
+    service:
+      type: LoadBalancer
+
+cnrs:
+  domain_name: run.${TAP_INGRESS_DOMAIN}
+  domain_template: "{{.Name}}-{{.Namespace}}.{{.Domain}}"
+  default_tls_secret: kube-system/tap-wildcard-cert
+
+appliveview_connector:
+  backend:
+    ingressEnabled: true # true for multi cluster
+    host: appliveview.${TAP_INGRESS_DOMAIN}
+
+package_overlays:
+- name: cnrs
+  secrets:
+  - name: overlay-cnrs

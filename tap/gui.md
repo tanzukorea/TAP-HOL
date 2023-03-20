@@ -81,10 +81,14 @@ Log Levels 항목에서는 애플리케이션에서 사용하는 스프링 기�
 #### Threads
 Threads 항목에서는 쓰레드에 대한 정보 및 Thread Dump를 추출할 수 있습니다.
 ![](../images/alv-04.png)
+또한 우측 상단의 "THREAD DUMP" 버튼을 클릭하여 thread-dump.txt라는 이름의 쓰레드 덤프 파일을 다운로드 받을 수 있습니다. 이 파일은 텍스트 파일이므로 임의의 편집기로 열 수 있습니다.
+![](../images/alv-04-01.png)
 
 #### Memory
 Memory 항목에서는 현재 구동되어 있는 Pod에 대한 메모리 정보 및 Garbage 정보를 조회할 수 있습니다.
 ![](../images/alv-05.png)
+또한 우측 상단의 "HEAP DUMP" 버튼을 클릭하여 heap-dump.hprof 라는 이름의 힙덤프 파일을 다운로드 받을 수 있습니다. 이 파일은 힘덤프를 분석해 주는 도구로 열면 힙에 대한 내용을 확인할 수 있습니다. 아래 이미지는 VisualVM이라는 도구로 확인한 힙덤프 내용입니다.
+![](../images/alv-05-01.png)
 
 #### HTTP Requests
 HTTP Requests 항목에서는 Pod에 요청된 요청 수에 대한 정보를 그래프로 보여줍니다.

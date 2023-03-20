@@ -1,0 +1,101 @@
+profile: full
+
+ceip_policy_disclosed: true # Installation fails if this is set to 'false'
+shared:
+  ingress_domain: "${TAP_INGRESS_DOMAIN}"
+  ca_cert_data: |
+    -----BEGIN CERTIFICATE-----
+    MIIFbjCCA1YCCQCz9VnyO8hNRjANBgkqhkiG9w0BAQ0FADB5MQswCQYDVQQGEwJV
+    ...
+    hoNdK+FGCAWdFj6mo0ZwPzMeZmxcC/7RRCo51j6e7o0q/mvxxAqLwask47b+miem
+    bfWeEus869PU/3ijqU4rVB4MYpEqavnQrJHG/U5eT1dItY+fCfI=
+    -----END CERTIFICATE-----
+
+buildservice:
+  kp_default_repository: "${INSTALL_REGISTRY_HOSTNAME}/tanzu-application-platform/build-service"
+  kp_default_repository_username: "${INSTALL_REGISTRY_USERNAME}"
+  kp_default_repository_password: "${INSTALL_REGISTRY_PASSWORD}"
+  exclude_dependencies: true
+
+contour:
+  envoy:
+    service:
+      type: LoadBalancer
+
+cnrs:
+  domain_name: ${TAP_INGRESS_DOMAIN}
+  domain_template: "{{.Name}}-{{.Namespace}}.{{.Domain}}"
+  default_tls_secret: kube-system/tap-wildcard-cert
+  ingress_issuer: ""
+
+appliveview:
+  tls:
+    secretName: tap-wildcard-cert
+    namespace: kube-system
+  ingressEnabled: "true"
+
+appliveview_connector:
+  backend:
+    ingressEnabled: true # true for multi cluster
+    host: appliveview.${TAP_INGRESS_DOMAIN}
+
+image_policy_webhook:
+  allow_unmatched_tags: true
+
+supply_chain: basic
+ootb_supply_chain_basic:
+  registry:
+    server: "tanzukorea.azurecr.io"
+    repository: "dev-team-01/source"
+  gitops:
+    ssh_secret: ""
+
+springboot_conventions:
+  autoConfigureActuators: true
+
+accelerator:
+  ingress:
+    include: true
+
+tap_gui:
+  service_type: ClusterIP
+  tls:
+    namespace: kube-system
+    secretName: tap-wildcard-cert
+  app_config:
+    proxy:
+      /metadata-store:
+        target: https://metadata-store-app.metadata-store:8443/api/v1
+        changeOrigin: true
+        secure: false
+        headers:
+          Authorization: "Bearer METADATA-STORE-READ-WRITE-CLIENT"
+          X-Custom-Source: project-star
+    app:
+      baseUrl: https://tap-gui.${TAP_INGRESS_DOMAIN}
+    catalog:
+      locations:
+        - type: url
+          target: https://github.com/tanzukorea/tanzu-java-web-app/blob/main/catalog/catalog-info.yaml
+    backend:
+      reading:
+      baseUrl: https://tap-gui.${TAP_INGRESS_DOMAIN}
+      cors:
+        origin: https://tap-gui.${TAP_INGRESS_DOMAIN}
+      
+    kubernetes:
+      serviceLocatorMethod:
+        type: 'multiTenant'
+      clusterLocatorMethods:
+      - type: 'config'
+        clusters:
+        - url: BUILD_CLUSTER_URL
+          name: build
+          authProvider: serviceAccount
+          serviceAccountToken: "BUILD_CLUSTER_TOKEN"
+          skipTLSVerify: true
+        - url: RUN_CLUSTER_URL
+          name: run
+          authProvider: serviceAccount
+          serviceAccountToken: "RUN_CLUSTER_TOKEN"
+          skipTLSVerify: true
