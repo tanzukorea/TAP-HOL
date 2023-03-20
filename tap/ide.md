@@ -50,6 +50,7 @@ iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.co
 
 TAP와 DNS를 공유하고 있으면 아래와 같은 설정은 필요 없지만, DNS가 없는 경우에는 아래의 내용을 hosts 파일에 등록해야 합니다.<br>
 C:\Windows\System32\drivers\etc\hosts에 아래 등록
+
     ```
     jumpbox 서버IP    harbor.도메인명
     avi_vip    tap-gui.도메인명
@@ -67,7 +68,7 @@ C:\Windows\System32\drivers\etc\hosts에 아래 등록
     ```
     certutil -addstore -f "ROOT" ca.crt
     ```
-    
+
 9. harbor에 로그인
    credential을 local에 저장하기 위해 harbor에 로그인을 합니다. 이 crential은 local pc에서 source image를 업로드할때 사용하게 됩니다.
     ```
