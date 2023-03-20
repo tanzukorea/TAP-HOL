@@ -1,0 +1,44 @@
+profile: build
+ceip_policy_disclosed: true
+
+shared:
+  ca_cert_data: |
+    -----BEGIN CERTIFICATE-----
+    MIIDwzCCAqugAwIBAgIUUWdX02WTOTFwA0EW+HvwHzN5/k8wDQYJKoZIhvcNAQEN
+    ...
+    EKaXUumX4rIj2WWNMYlY8lpQb7JhS5zfaVegVe1/UqzmQz0XmZYiG95Y4gFV1+DO
+    4aCJxMz52w==
+    -----END CERTIFICATE-----
+
+buildservice:
+  kp_default_repository: "${INSTALL_REGISTRY_HOSTNAME}/tanzu-application-platform/build-service"
+  kp_default_repository_username: "${INSTALL_REGISTRY_USERNAME}"
+  kp_default_repository_password: "${INSTALL_REGISTRY_PASSWORD}"
+  exclude_dependencies: true
+
+supply_chain: testing_scanning
+ootb_supply_chain_testing_scanning:
+  #external_delivery: false # writing to a configmap (true) or creating a deliverable (false)
+  registry:
+    server: "${INSTALL_REGISTRY_HOSTNAME}"
+    repository: "tap/supply-chain"
+
+grype:
+  targetImagePullSecret: tap-registry
+  metadataStore:
+    url: https://metadata-store.${TAP_INGRESS_DOMAIN}
+    caSecret:
+      name: store-ca-cert
+      importFromNamespace: metadata-store-secrets
+    authSecret:
+      name: store-auth-token
+      importFromNamespace: metadata-store-secrets 
+
+scanning:
+  metadataStore:
+    url: ""
+
+package_overlays:
+- name: buildservice
+  secrets:
+  - name: overlay-cert-injection-webhook-scantemplates
