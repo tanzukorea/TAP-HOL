@@ -40,10 +40,57 @@ tap에 kubectl로 접속하기 위한 .kube/config 파일을 다운로드 하여
 
 
 6. Tilt 설치<br>
-- tilt download 및 설치 : https://docs.tilt.dev/install.html<br>
+- tilt download 및 설치 
 powershell 창을 열고 아래 명령어를 실행합니다.<br>
 iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
 
+![](./images/tilt_install_window.png)
+
+윈도우 이외 환경에서의 설치는 이 문서를 참고합니다.: https://docs.tilt.dev/install.html<br>
+
+
+### VS Code Plugin설치하기
+
+1. Visual Studio Code Plugin 설치
+TAP는 Tanzu Developer Tool과 App Accelerator 2개의 플러그인을 제공합니다. 
+    Tanzu net에서 다운로드를 받을 수 있습니다. Lab의 편의를 위해 아래의 경로에 있는 TAP1.5용 파일을 다운로드 합니다. plugin은 하위호환성을 제공하기 때문에 상위버전을 받아 사용할 수 있습니다. 다만 이때 tanzu cli도 같은 버전으로 설치를 해야 합니다.
+
+    [tanzu-vscode-extension-0.14.0.vsix 다운로드](https://onevmw.sharepoint.com/:u:/r/teams/TAP201HOLWorkshop/Shared%20Documents/General/1.5/vscode/tanzu-vscode-extension-0.14.0.vsix?csf=1&web=1&e=eBf3aF)
+
+    [app-accelerator-0.1.6.vsix 다운로드](https://onevmw.sharepoint.com/:u:/r/teams/TAP201HOLWorkshop/Shared%20Documents/General/1.5/vscode/tanzu-app-accelerator-0.1.6.vsix?csf=1&web=1&e=URkdGU)
+
+    Visual Studio Code를 실행해서 VSIX를 설치합니다.
+    ![](./images/vs1.png)
+    ![](./images/vs2.png)
+    ![](./images/vs3.png)
+
+    설치시 같이 추천하는 아래의 plugin도 설치합니다.
+    - Debugger for Java
+    - Language Support for Java(™) by Red Hat
+    - YAML
+    ![](./images/vs6.png)
+    ![](./images/vs5.png)
+
+2. Java 언어 모드 설정
+    
+    설정화면에서 
+    Code > Preferences > Settings Java > Server: Launch Mode 를 Standard로 변경합니다.
+    ![](./images/images-vscode-install4.png)
+
+3. Source Image 설정
+    VSCode plugin에서는 개발자 PC에서 작성된 소스를 docker image로 압축하여 harbor에 업로드를 하게 됩니다. 그 후에 해당 이미지를 source로 사용하여 TAP에 배포를 하게 됩니다.
+    여기서는 소스가 저장될 docker registry인 harbor의 주소를 입력해줍니다.
+
+    이때 repository 이름은 소스가 저장될 별도의 repository를 사용하시는 것을 권고합니다.
+    예를 들어 tap-app 이라는 repository를 만들면 됩니다. 그 하위로 sources라는 이름으로 만들게 되면 app을 배포할때 마다 해당 이미지 이름의 하위로 tag가 변경이 되면서 업로드 되게 됩니다.
+    이 tap-app repository에 대하여 개발자는 업로드 권한을 갖고 있어야 하며, 개발자 pc에서 docker login을 수행하여 해당 repository에 대한 credential을 생성해야 합니다.
+
+    Code > Preferences > Settings > Extensions > Tanzu Developer Tools 에서 Source Image에 주소를 입력합니다.
+
+    예:) harbor.tanzukr.com/tap-app/sources
+
+    ![](./images/vs4.png)
+    
 
 
 7. host 파일 등록
@@ -54,8 +101,8 @@ iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.co
     ```
     위 파일을 관리자 권한으로 연후에 아래의 내용을 입력합니다.
     ```
-        jumpbox 서버IP    harbor.도메인명
-        avi_vip    tap-gui.도메인명
+    jumpbox 서버IP    harbor.도메인명
+    avi_vip    tap-gui.도메인명
     ```
 
 8. CA certificate 등록
