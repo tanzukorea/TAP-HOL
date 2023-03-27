@@ -37,8 +37,9 @@ tap에 kubectl로 접속하기 위한 .kube/config 파일을 다운로드 하여
 6. Tilt 설치<br>
 - tilt download 및 설치 
 powershell 창을 열고 아래 명령어를 실행합니다.<br>
-iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
-
+```
+    iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
+```
 ![](./images/tilt_install_win.png)
 
 윈도우 이외 환경에서의 설치는 이 문서를 참고합니다.: https://docs.tilt.dev/install.html<br>

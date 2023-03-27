@@ -4,7 +4,7 @@
 https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-vscode-extension-using-the-extension.html
 
 
-### 동적 배포와 원격 디버깅
+### 1. IDE에서 앱 배포하기
 1. 소스 download
     로컬 경로에 자신의 github.com 에 올려져 있는 tanzu-java-web-app을 git clone을 통해 소스를 다운로드 합니다.
     ```
@@ -20,16 +20,26 @@ https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-vscode
 3. workload 실행
     ![](./images/workload1.png)
 
+4. app 확인
+    app이 deploy가 되게 되면 아래의 형식으로 배포가 되게 됩니다.
+
+    ```
+        tanzu-java-web-app.네임스페이스.도메인명 
+    ```
+
+    브라우저에서 정상적으로 생성이 되었는지 확인을 해봅니다.
+
+### 2. 동적 배포와 원격 디버깅
 4. Live Update
 
-    Live Update 기능을 시작합니다.
+    Live Update 기능을 시작합니다. 이때는 App을 새로 배포를 진행하게 됩니다.
         ![](./images/liveupdate1.png)
     페이지가 정상적으로 열리는지 확인합니다.
-    소스를 수정하고 변경사항이 바로 적용이 되는지 확인합니다. 10초 이내에 반영이 되어야 합니다.
+    소스를 수정하고 변경사항이 바로 적용이 되는지 확인합니다. 보통 10초 이내에 반영이 됩니다.
 
-3. Debug
+3. 원격 Debug
 
-    Debug기능을 이용하기 위해 먼저 마우스로 소스에 break point를 설정하고 Debug Start 를 시작합니다.
+    원격 클러스터에 배포되어 있는 app을 debug하기 위해서는 먼저 마우스로 소스에 break point를 설정하고 Debug Start 를 시작합니다.
     ![](./images/debug.png)
 
     윈도우의 경우 내장 방화벽이 enable되어 있는 경우 아래와 같은 메세지가 나오게 됩니다. 액세스 허용을 누르면 됩니다.
