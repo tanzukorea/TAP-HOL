@@ -100,9 +100,9 @@ TAP는 Tanzu Developer Tool과 App Accelerator 2개의 플러그인을 제공합
     avi_vip    tap-gui.도메인명
     ```
 
-8. CA certificate 등록
+8. CA certificate 등록(Self-Signed인 경우)
 
-    Local PC에서 harbor에 접속이 필요하기 때문에 harbor의 CA 인증서를 다운로드 받아 Local PC에 등록을 해주어야 합니다.
+    Self-signed CA를 사용하는 경우에는 harbor의 CA 인증서를 다운로드 받아 Local PC에 등록을 해주어야 합니다.
 
     CA 파일을 local pc로 복사합니다.
     윈도우에서는 아래의 명령어를 실행해서 OS에 certificate를 등록합니다.
