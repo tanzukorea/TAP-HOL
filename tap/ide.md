@@ -10,11 +10,6 @@ TAP에서 제공하는 개발자 IDE Plugin을 실습하는 Lab입니다. TAP에
 개발자 PC는 TAP가 접속이 가능한 환경이어야 합니다.
     - Visual Studio Code 설치 : https://code.visualstudio.com/download
     - Git 설치 : https://git-scm.com/downloads
-    - Docker Desktop 설치 : https://www.docker.com/products/docker-desktop/
-        - 주의사항 : Docker Desktop을 설치하기 위해서는 OS에서 VT-x가 enable되어 있어야 합니다. VT-x는 CMOS에서 enable해야 합니다. Local PC가 윈도우인 경우에는 제어판->Windows Feautres에서 Hyper-v가 활성화 되어 있는지 확인하시면 됩니다.
-            https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements<br>
-            만약 Local PC 대신 가상 vSphere VM에서 사용할 경우에는 VM->CPU->가상화 enable을 하셔야 합니다.
-            https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html
 
 2. CLI 설치<br>
 kubectl 설치 : https://kubernetes.io/docs/tasks/tools/#kubectl<br>
@@ -108,18 +103,23 @@ TAP는 Tanzu Developer Tool과 App Accelerator 2개의 플러그인을 제공합
 8. CA certificate 등록
 
     Local PC에서 harbor에 접속이 필요하기 때문에 harbor의 CA 인증서를 다운로드 받아 Local PC에 등록을 해주어야 합니다.
-    ```
-    jumpbox에서 CA파일 위치 : /data/cert 
-    ```
 
-    위 경로에 있는 c.crt 파일을 local pc로 복사합니다.
+    CA 파일을 local pc로 복사합니다.
     윈도우에서는 아래의 명령어를 실행해서 OS에 certificate를 등록합니다.
     ```
     certutil -addstore -f "ROOT" ca.crt
     ```
 
-9. harbor에 로그인
-   credential을 local에 저장하기 위해 harbor에 로그인을 합니다. 이 crential은 local pc에서 source image를 업로드할때 사용하게 됩니다.
-    ```
-    docker login harbor.도메인
-    ```
+9. Harbor에 접속하기 위한 docker credential 생성하기
+   
+   개발자 IDE에서는 Harbor에 소스 이미지 업로드를 할때 credential을 사용합니다. 
+   
+    1) 개발자의 PC에 docker가 설치되어 있는 경우 
+        ```
+        docker login harbor주소
+        ```
+    2) 개발자의 PC에 docker가 설치되어 있지 않은 경우 별도의 docker client(윈도우의 경우는 Docker Desktop)를 설치할 필요가 없이 아래의 Guide대로 credential만 생성하면 됩니다.
+
+        [Docker 설치 없이 Credential 생성하기](./create_docker_credential.md)
+
+   
