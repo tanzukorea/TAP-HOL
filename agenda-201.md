@@ -24,9 +24,9 @@
 - [Lab 환경을 위한 사전 준비사항](./install/lab_prepare.md)
 
 ## 1. 워크로드 배포
-- [다양한 방식의 워크로드 배포](./workload_deploy.md)
-- [Local에 있는 파일 워크로드 배포](./workload_local.md)
-- [Dockerfile 기반 워크로드 배포](./workload_dockerfile.md)
+- [다양한 방식의 워크로드 배포](./tap/workload_deploy.md)
+- [Local에 있는 파일 워크로드 배포](./tap/workload_local.md)
+- [Dockerfile 기반 워크로드 배포](./tap/workload_dockerfile.md)
 
 ## 2. TAP GUI
 - [catalog 등록](./tap/catalog.md)
