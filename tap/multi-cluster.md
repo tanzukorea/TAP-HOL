@@ -6,7 +6,7 @@
 마지막으로 Run 클러스터는 배포할 workload가 배포되는 클러스터입니다.
 
 
-![](../images/multi-cluster-Architecture.png)
+![](../images/multi-cluster-architecture.png)
 
 
 - 각 클러스터 별 설정 정보는 다음과 같습니다. 설치 가이드는 각 클러스터 명을 클릭하시기 바랍니다.
