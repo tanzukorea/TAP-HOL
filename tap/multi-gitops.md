@@ -13,8 +13,8 @@ kubectl config get-contexts
 
 ### 2) 실습자 환경의 build Cluster로 contexts를 변경합니다.
 ~~~
-kubectl config use-context 'build cluster AUTHINFO'
-kubectl config use-context build@tkgm01
+kubectl config use-context '<NAME>'
+kubectl config use-context build-cluster-admin@build-cluster
 ~~~
 
 ## 1. GitOps 적용
