@@ -192,9 +192,10 @@ spec:
 
 
 #### 5) Deliverable 아래와 같이 저장합니다. <br/>
-~~~
+
+```cmd
 kubectl get configmap tanzu-java-web-app-test-deliverable --namespace dev-team-01 -o go-template='{{.data.deliverable}}' >  deliverable.yaml
-~~~
+```
 
 
 #### 6) 아래와 같이 위 workload을 배포 할 run 클러스터로 context을 변경합니다. <br/>
@@ -233,7 +234,7 @@ tanzu-java-web-app-test   https://github.com/haewons-tanzu/tap-gitops-repo.git  
 #### 5) merge 승인 확인 <br/>
 ![](../images/merge-check.png)
 
-### 6) run 클러스터에서 delicerables을 조회 및 httpproxy 조회 <br/>
+### 6) run 클러스터에서 delicerables, httpproxy 조회 <br/>
 ~~~
 kubectl get deliverables,httpproxy -n dev-team-01
 
