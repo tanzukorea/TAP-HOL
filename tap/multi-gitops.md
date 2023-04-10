@@ -224,8 +224,8 @@ tanzu-java-web-app-test   https://github.com/haewons-tanzu/tap-gitops-repo.git  
 #### 2) pull request 확인 <br/>
 ![](../images/pull-request.png)
 
-#### 3) pull request 확인 <br/>
-![](../images/pull-request.png)
+#### 3) merge pull request <br/>
+![](../images/merge-pull-request.png)
 
 #### 4) merge 승인 <br/>
 ![](../images/confirm-merge.png)
