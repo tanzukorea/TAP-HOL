@@ -6,7 +6,7 @@
 
 
 ## 0. contexts 정보를 변경합니다.
-### 1) 현재의 Cluster 정보를 조회합니다.
+### 1) 현재의 Cluster contexts 정보를 조회합니다.
 ~~~
 kubectl config get-contexts
 ~~~
