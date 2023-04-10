@@ -46,3 +46,5 @@ OOTB Basic Supply Chain으로 설치된 TAP를 Testing and Scanning으로 변경
 ## 7. Accelerator 커스터마이징
 - [Accelerator 커스터마이징](./tap/accelerator.md)
 
+## 8. 멀티 클러스터 구축 및 설정
+- [멀티 클러스터 구축 및 설정](./tap/multi-cluster.md)
