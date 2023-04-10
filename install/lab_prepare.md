@@ -24,7 +24,7 @@ TAP 설치를 위해서는 아래와 같은 Kubernetes Cluster가 필요합니�
    |[full](./multicluster/full/install-full.md)|full|basic|1) 개발자가 사용할 iterate 클러스터 및 2)TAP GUI가 설치될 view 클러스터|
    |[build]|build|testing_scanning|소스 및 이미지를 테스트, 스캐닝하고 워크로드를 빌드하여 이미지를 생성할 클러스터|
    |[run]|run|-|워크로드가 구동될 클러스터|
-- TAP cluster(full profile : worker 3 node)
+- TAP cluster(full profile : worker 3 node)<br>
   run, build (TKG cluster : worker 3 node)
 - TAP Multi Cluster 설치에 대한 자세한 설치 방법은 [여기](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/multicluster-installing-multicluster.html)를 참조하시기 바랍니다.
 
