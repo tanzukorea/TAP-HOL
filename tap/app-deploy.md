@@ -9,9 +9,10 @@
 * 개인 Git 저장소에 업로드 합니다. 
 * TAP GUI에서 app live view를 보기 위한 app을 배포합니다.
 
+### 1. Dev Namespace 설정하기
+[개발자 Namespace설정하기](../install/dev-namespace.md)
 
-
-### 1.앱 배포
+### 2.앱 배포
 다음과 같이 2가지 방법으로 TAP를 이용하여 워크로드를 생성할 수 있습니다.
 * tanzu CLI를 이용하여 생성
 * workload 파일을 이용하여 생성
@@ -41,7 +42,7 @@ tanzu apps workload create tanzu-java-web-app \
 
 
 
-### 2. 로그 확인
+### 3. 로그 확인
 이제 워크로드가 잘 생성되고 있는지 다음 명령어를 이용해서 확인해 봅니다.
 <br/>
 > 워크로드 목록 조회
@@ -99,7 +100,7 @@ kubectl get pod
 ```
 ![](../images/tap-06.png)
 
-### 3. 워크로드 삭제
+### 4. 워크로드 삭제
 
 > 워크로드 삭제
 ```cmd
@@ -115,7 +116,7 @@ https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-cli-pl
 
 
 
-### 4. 워크로드 파일 생성 및 앱 배포
+### 5. 워크로드 파일 생성 및 앱 배포
 앞선 실습에서는 tanzu CLI를 이용하여 앱 배포를 하였고, 이번 실습에서는 workload 파일을 이용하여 앱을 배포하겠습니다.
 
 
@@ -149,7 +150,7 @@ tanzu apps workload apply -f workload.yaml
 
 
 
-### 5. Accelerator 다운로드 및 개인 Git 저장소에 업로드 
+### 6. Accelerator 다운로드 및 개인 Git 저장소에 업로드 
 다음 링크를 클릭하여 TAP GUI에 접속합니다.
 
 URL: http://tap-gui.tanzukr.com/
@@ -197,7 +198,7 @@ git push -u origin main
 ![](../images/acc-07.png)
 
 
-### 6. APP LIVE VIEW 조회를 위한 워크로드 배포
+### 7. APP LIVE VIEW 조회를 위한 워크로드 배포
 해당 실습은 Spring Boot기반의 애플리케이션을 배포하여 TAP의 기능 중 하나인 App Live View를 TAP GUI화면에서 확인하기 위해서 신규로 App를 배포합니다.
 
 5번에서 각 개인 git repo로 업로드한 tanzu-java-web-app2/catalog-info.yaml 파일을 아래와 같이 github ui에서 직접 아래와 같이 수정을 합니다.
