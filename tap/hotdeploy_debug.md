@@ -1,7 +1,7 @@
 ## 동적 배포와 원격 디버깅
-여기서는 간단한 guide만 설명하고 있습니다. 자세한 내용은 아래의 주소에서 확인할 수 있습니다.
+여기서는 간단한 guide만 설명합니다. 자세한 내용은 아래의 주소에서 확인할 수 있습니다.
 
-https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-vscode-extension-using-the-extension.html
+https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/vscode-extension-using-the-extension.html
 
 
 ### 1. IDE에서 앱 배포하기
@@ -11,11 +11,6 @@ https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-vscode
     예:)    git clone https://github.com/wonjoyoo/tanzu-java-web-app
     ```
 2. Visual Studio Code 에 '폴더 열기' 메뉴를 클릭하여 위에서 다운로드 받은 폴더를 엽니다.
-3. 파일 내용 확인 및 수정
-    ```
-    .mvn/wrapper/maven-wrapper.properties
-    ```
-    위 파일을 열고 3번째 줄이 빈줄로 있는 경우 3번째 줄을 없앱니다.
 
 3. workload 실행
     ![](./images/workload1.png)
@@ -52,10 +47,18 @@ https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-vscode
     ```
     allow_k8s_contexts('cluster1-admin@cluster1')
     ```
-    
+    ![](./images/tiltfile_change.png)
+
     다시 호출해서 workload가 Ready가 되면 페이지를 호출합니다. 페이지가 정상적으로 열리지 않고 pending상태가 되어 있는 것을 확인할 수 있습니다.
+    ![](./images/ide_debug.png)
+페이지가 호출되기 직전에 break point 지점에서 수행이 멈춘 것이고, 이때 IDE에서 왼쪽 상단의 변수값과 조사식에서 현재 들어있는 값 등을 확인할 수 있습니다.
+
+    ![](./images/vscode_debugpanel.png)
+VS Code 상단에 있는  Resume(계속), Step Over(단위실행), Step In(단계정보) 기능을 사용하여 Debug를 수행합니다.
+
+    계속 버튼을 눌러 디버그를 종료하고 마지막 코드까지 실행을 완료 하면 페이지가 열리게 됩니다.
     ![](./images/debug1.png)
-    VS Code에서 Resume기능이나 한 Step 이동하는 기능으로 Debug를 확인합니다.
+    
     
     
 
