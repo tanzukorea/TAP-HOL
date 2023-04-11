@@ -1,10 +1,7 @@
 ## Local에 있는 파일 워크로드 배포
 
-**이번 실습은 개발자의 Workshop Session 환경에 저장된 Local Source를 Workload로 배포하는 실습입니다.**     
+**이번 실습은 개발자의 Local Source를 Workload로 배포하는 실습입니다.**     
       
-*Note) 앞서 수행한 방식과는 다르게 배포에 필요한 Source는 아직 git 에 올라가 있지 않으며            
-      개발자 Local 환경에 있는 Source를 통해 배포됩니다.*  
-
 1. TAP package accelerator update
 이번 Lab에서는 accelerator 에 직접 접근해서 다운로드 받는 방식을 사용합니다.
 accelerator는 tap-gui를 통해 다운로드를 받을 수 있기 때문에 별도의 세팅을 하지 않아도 되지만, CLI를 통해 다운로드를 받을 경우에는 accelerator server를 설정해 주어야 합니다.

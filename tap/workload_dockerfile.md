@@ -1,8 +1,10 @@
 ## Dockerfile 기반 워크로드 배포
 
-**이번 실습은 기존 Dockerfile을 이용하여 workload를 배포하는 실습입니다.**    
+**이번 실습은 기존에 사용중인 Dockerfile을 이용하여 workload를 배포하는 실습입니다.**    
+TAP는 TBS(Tanzu Build Service)를 사용하기 때문에 별도의 Dockerfile을 필요로 하지 않습니다. 하지만 기존에 사용중인 Dockerfile을 그대로 사용하고자 할 경우도 있습니다. (예: docker image에 커스텀한 패키지를 같이 설치해야 하는 경우) 이 경우를 위해 기존에 사용중인 Dockerfile을 사용할 수 있습니다.
 
-1. kaniko Overview    
+1. kaniko Overview
+Kubernetes 에서 docker를 build하기 위해서는 container 안에서 다시 docker engine을 띄워야 하는데, 이것을 지원하는 것이 kaniko입니다.
 ```
 Kaniko는 Container 또는 Kubernetes 클러스터 내부의 Dockerfile에서 컨테이너 이미지를 빌드하는 도구입니다.
 Kaniko는 Docker 데몬에 의존하지 않기 때문에, 일반적인 표준 Kubernetes 클러스터와 같이 Container Runtime이
