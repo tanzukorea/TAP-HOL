@@ -42,6 +42,8 @@ OOTB Basic Supply Chain으로 설치된 TAP를 Testing and Scanning으로 변경
 
 ## 5. 개발 환경 구성
 - [개발 IDE 구성하기](./tap/ide.md)
+- [IDE 살펴보기](./tap/ide2.md)
+- [IDE에서 Accelerator로 개발 시작하기](./tap/ide_accelerator.md)
 - [동적 배포와 원격 디버깅](./tap/hotdeploy_debug.md)
 
 ## 6. Accelerator 커스터마이징
