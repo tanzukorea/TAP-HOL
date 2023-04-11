@@ -38,10 +38,10 @@ OOTB Basic Supply Chain으로 설치된 TAP를 Testing and Scanning으로 변경
 
 ## 4. 싱글 클러스터 환경을 위한 GitOps 구성 
 구성 정보를 자동적으로 git repository에 push하도록 gitops 환경을 구성합니다.
-- [GitOps 구성하기](./tap/gitops.md)
+- [GitOps 구성](./tap/gitops.md)
 
 ## 5. 개발 환경 구성
-- [개발 환경 구성하기](./tap/ide.md)
+- [개발 IDE 구성하기](./tap/ide.md)
 - [동적 배포와 원격 디버깅](./tap/hotdeploy_debug.md)
 
 ## 6. Accelerator 커스터마이징
@@ -49,6 +49,4 @@ OOTB Basic Supply Chain으로 설치된 TAP를 Testing and Scanning으로 변경
 
 ## 7. 멀티 클러스터 구축 및 설정
 - [멀티 클러스터 구축 및 설정](./tap/multi-cluster.md)
-
-## 8. 멀티 클러스터 환경을 위한 GitOps 구성
-- [GitOps 배포 ](./tap/multi-gitops.md)
+- [멀티 클러스터 GitOps 구성 ](./tap/multi-gitops.md)
