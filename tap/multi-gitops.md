@@ -24,7 +24,7 @@ GitOps 워크플로에서 Deployment/Service/ConfigMaps 및 secret 같은 Kubern
 TAP gitops 방식을 이용하여 workload 배포시 CD에 필요한 Kuberntes Resource 가 자동으로 생성(delivery.yml)이 되며,
 이는 TAP의 source controller 에 의해 자동 감지되어 변경시 자동 빌드 및 배포로 이어집니다.
 
-![](../images/tap-gitiops-architecture)
+![](../images/tap-gitiops-architecture.png)
 
 
 ## 0. contexts 정보를 변경합니다.
