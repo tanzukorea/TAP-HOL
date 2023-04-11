@@ -1,8 +1,30 @@
-# GitOps
+# 멀티 클러스터 환경애서의 GitOps 구성
 
-본 과정에서는 GitOps 접근 방식을 사용하여 Kubernetes 구성을 원격 Git 저장소로 푸시하도록 Supply Chain을 설정합니다.
+본 과정에서는 Gitops에 대한 개념과 TAP를 통한 GitOps 접근 방식을 사용하여 Kubernetes 구성을 원격 Git 저장소로 푸시하도록 Supply Chain을 설정합니다.
 현 GitOps 테스트는 멀티클러스 환경에서 구성이 되며, 아래 tap-value.yaml 파일은 Build 클러스터 환경에서 수행하여 Run 클러스터에 App이 배포가 되는지 확인합니다. 
-해당 실습은 ootb_supply_chain_testing_scanning로 진행합니다.
+해당 실습은 ootb_supply_chain_testing_scanning로 진행합니다. 
+
+
+
+## Container 환경에서의 일반적인 GitOps 개념과 Architecture(예시)
+GitOps는 인프라 및 애플리케이션 구성을 정의하고 관리하기 위한 방법으로 git을 사용하여 단일 Source로 관리하는 방법론입니다.
+
+GitOps 워크플로에서 Deployment/Service/ConfigMaps 및 secret 같은 Kubernetes 리소스의 구성을 포함하여 시스템에
+대한 모든 변경 사항은 Git을 통해 이루어집니다.
+일반적으로, 이러한 GitOps를 Kubernetes와 함께 사용할 경우 Kubernetes 리소스에 대한 구성 파일이 포함된 Git Repository가 필요하며
+이러한 구성 파일은 ArgoCD, Flux 혹은 Jenkins X와 같은 GitOps tool을 사용하여 관리되며 Git 리포지토리에서 변경 사항을 지속적으로
+모니터링하고 이러한 변경 사항을 Kubernetes 클러스터에 자동으로 배포합니다.
+
+![](../images/gitops-Architecture1.png)
+
+
+
+
+## 실습 멀티 클러스터 환경에서 TAP을 통한 GitOps Architecture
+TAP gitops 방식을 이용하여 workload 배포시 CD에 필요한 Kuberntes Resource 가 자동으로 생성(delivery.yml)이 되며,
+이는 TAP의 source controller 에 의해 자동 감지되어 변경시 자동 빌드 및 배포로 이어집니다.
+
+![](../images/tap-gitiops-architecture)
 
 
 ## 0. contexts 정보를 변경합니다.
