@@ -43,12 +43,13 @@ https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/vscode-exte
     Tilt 파일에 아래와 같은 권한이 필요하다고 나옵니다. 동일하게 내용을 Tilt 파일의 제일 아래부분에 추가시킵니다.
     ![](./images/debug_tilt.png)
 
-    Tilt 파일 수정
+4. Tilt 파일 수정
     ```
     allow_k8s_contexts('cluster1-admin@cluster1')
     ```
     ![](./images/tiltfile_change.png)
 
+5. 페이지 호출
     다시 호출해서 workload가 Ready가 되면 페이지를 호출합니다. 페이지가 정상적으로 열리지 않고 pending상태가 되어 있는 것을 확인할 수 있습니다.
     ![](./images/debug1.png)
     이제 VS Code로 가서 코드를 확인합니다.
@@ -59,9 +60,5 @@ https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/vscode-exte
 
 VS Code 상단에 있는  Resume(계속), Step Over(단위실행), Step In(단계정보) 기능을 사용하여 Debug를 수행합니다.
 
-    계속 버튼을 눌러 디버그를 종료하고 마지막 코드까지 실행을 완료 하면 페이지가 열리게 됩니다.
-    
-    
-    
-    
-
+6. 디버그 종료
+계속 버튼을 눌러 디버그를 종료하고 마지막 코드까지 실행을 완료 하면 페이지가 열리게 됩니다.
