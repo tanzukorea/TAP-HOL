@@ -18,14 +18,17 @@
 ![](../images/multi-cluster-architecture.png)
 
 
-- 각 클러스터 별 설정 정보는 다음과 같습니다. 설치 가이드는 각 클러스터 명을 클릭하시기 바랍니다.
+- 각 클러스터 별 설정 정보는 다음과 같습니다.
    |클러스터 명|프로파일 명|Supply Chain|용도|
    |---|---|---|---|
-   |[여기 클릭(full)](../install/multicluster/full/install-full.md)|full|basic|1) 개발자가 사용할 iterate 클러스터 및 2)TAP GUI가 설치될 view 클러스터|
-   |[여기 클릭(build)](../install/multicluster/buildc/install-build.md)|build|testing_scanning|소스 및 이미지를 테스트, 스캐닝하고 워크로드를 빌드하여 이미지를 생성할 클러스터|
-   |[여기 클릭(run)](../install/multicluster/run/install-run.md)|run|-|워크로드가 구동될 클러스터|
-- TAP Multi Cluster 설치에 대한 자세한 설치 방법은 [여기](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/multicluster-installing-multicluster.html)를 참조하시기 바랍니다.
+   |full|full|basic|1) 개발자가 사용할 iterate 클러스터 및 2)TAP GUI가 설치될 view 클러스터|
+   |build|build|testing_scanning|소스 및 이미지를 테스트, 스캐닝하고 워크로드를 빌드하여 이미지를 생성할 클러스터|
+   |run|run|-|워크로드가 구동될 클러스터|
 
+이번 Lab에서는 아래의 각 클러스터를 클릭하여 3개의 TAP 클러스터를 생성하는 과정을 수행합니다.
 
+1. [Full 클러스터 생성하기](../install/multicluster/full/install-full.md)
+2. [Build 클러스터 생성하기](../install/multicluster/buildc/install-build.md)
+3. [Run 클러스터 생성하기](../install/multicluster/run/install-run.md)
 
-
+- 기타 TAP Multi Cluster 설치 참고 문서는 [여기](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/multicluster-installing-multicluster.html)를 참조하시기 바랍니다.
