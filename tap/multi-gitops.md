@@ -255,3 +255,17 @@ httpproxy.projectcontour.io/tanzu-java-web-app-test-contoure57f5e178288f40bff602
 
 ### 8) tanzu-java-web-app-test-dev-team-01.run.tap.tanzukorea.xyz 접속 확인  <br/>
 ![](../images/workload-result.png)
+
+
+### 9) source git 에서 소스 수정 후 변경을 감지하여 GitOps 방식으로 동작하는지 확인 <br/>
+#### 1) 각자 자신의 git 에 접속하여 앞의 단계에서 배포한 소스 레포지터리에 접속 후 아래 아이콘을 클릭합니다. <br/>
+![](../images/gitops-edit1.png)
+
+#### 2) 각자의 소스를 변경 후 저장합니다. <br/>
+![](../images/gitops-edit2.png)
+
+#### 3) 5번의 "git 요청 프로세스를 수행하여 merge 승인 확인까지 완료합니다. <br/>
+
+#### 4) run cluster에 배포된  5-6 번의 httpproxy "https://tanzu-java-web-app-test-dev-team-01.run.tap.tanzukorea.xyz" url 접속하여 변경사항이 반영되었는지 확인합니다. 
+
+
