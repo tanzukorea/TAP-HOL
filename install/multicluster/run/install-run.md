@@ -83,6 +83,19 @@ TAP GUI에서 build 클러스터와 run 클러스터의 리소스들을 접속�
 kubectl apply -f tap-gui-viewer-service-account-rbac.yaml 
 ```
 
+#### c. tap-gui-viewer 시크릿 생성
+```cmd
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tap-gui-viewer
+  namespace: tap-gui
+  annotations:
+    kubernetes.io/service-account.name: tap-gui-viewer
+type: kubernetes.io/service-account-token
+EOF
+
 ### 5) TAP 설치
 #### a. TAP 설치
 다음 명령어를 사용하여 TAP 패키지를 설치합니다. tap-values.yaml 파일은 위의 4)번 단계에서 생성한 파일입니다.
