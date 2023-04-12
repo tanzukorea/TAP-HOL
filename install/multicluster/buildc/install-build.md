@@ -90,7 +90,7 @@ shared.ca_cert_data에 metadata-store.${TAP_INGRESS_DOMAIN} 도메인에 대한 
 
 ### 5) TAP 설치
 #### a. 스캔 템플릿 오버레이
-Grype가 자체 서명된 인증서를 사용하여 사설 레지스트리에 연결하지 못하게 하는 문제에 대한 워크어라운드 입니다. 이미지 레파지토리에 공용 인증서 사용 시 생략 가능합니다.
+Grype가 자체 서명된 인증서를 사용하여 사설 레지스트리에 연결하지 못하게 하는 문제에 대한 워크어라운드 입니다. 이미지 레파지토리에 공용 인증서 사용 시 생략 가능합니다. [YAML 파일 템플릿](./overlay-cert-injection-webhook-scantemplates.yaml) 참고하세요
 ```
 kubectl apply -f build-cluster/overlay-cert-injection-webhook-scantemplates.yaml 
 ```
