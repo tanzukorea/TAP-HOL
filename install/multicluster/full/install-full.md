@@ -110,7 +110,7 @@ full 프로파일을 가지는 TAP를 설치하기 위해 이 [YAML 파일 템�
 ### 5) TAP 설치를 위한 환경 구성
 #### a. 와일드카드 인증서 생성 - TODO
 앱에서 사용할 TLS TLS 인증서 및 키를 secret으로 생성합니다.
-[시크릿 파일 템플릿](./contour-tls-delegation-secret.yaml)을 참고하여 contour-tls-delegation-secret.yaml 파일을 생성하고, 시크릿을 생성합니다.
+[시크릿 파일 템플릿](./tap-gui-tls-cert.yaml)을 참고하여 tap-gui-tls-cert.yaml 파일을 생성하고, 시크릿을 생성합니다.
 tap-wildcard-cert
 ```
 $ k create ns tap-gui 
@@ -124,7 +124,7 @@ $ k apply -f view-cluster/tap-gui-tls-cert.yaml
 이 부분은 현재 설치 단계에서는 생략하고, 이후 실습에서 진행할 예정입니다. 
 
 #### c. 멀티클러스터 리소스 조회 권한 부여
-TAP GUI에서 build 클러스터와 run 클러스터의 리소스들을 접속하기 위한 권한을 부여합니다. build 클러스터와 run 클러스터에 각각 접속하여 다음 명령어를 수행합니다.
+TAP GUI에서 build 클러스터와 run 클러스터의 리소스들을 접속하기 위한 권한을 부여합니다. [rbac 파일 템플릿](./tap-gui-viewer-service-account-rbac.yaml)을 참고하여 build 클러스터와 run 클러스터에 각각 접속하여 다음 명령어를 수행합니다.
 ```cmd
 kubectl apply -f tap-gui-viewer-service-account-rbac.yaml 
 ```
