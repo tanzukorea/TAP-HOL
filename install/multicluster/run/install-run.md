@@ -95,6 +95,7 @@ metadata:
     kubernetes.io/service-account.name: tap-gui-viewer
 type: kubernetes.io/service-account-token
 EOF
+```
 
 ### 5) TAP 설치
 #### a. TAP 설치
