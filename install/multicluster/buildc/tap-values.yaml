@@ -2,6 +2,7 @@ profile: build
 ceip_policy_disclosed: true
 
 shared:
+  ingress_domain: "${TAP_INGRESS_DOMAIN}"
   ca_cert_data: |
     -----BEGIN CERTIFICATE-----
     MIIDwzCCAqugAwIBAgIUUWdX02WTOTFwA0EW+HvwHzN5/k8wDQYJKoZIhvcNAQEN
@@ -24,6 +25,7 @@ ootb_supply_chain_testing_scanning:
     repository: "tap/supply-chain"
 
 grype:
+  namespace: ${NAMESPACE} # (optional) Defaults to default namespace.
   targetImagePullSecret: tap-registry
   metadataStore:
     url: https://metadata-store.${TAP_INGRESS_DOMAIN}
