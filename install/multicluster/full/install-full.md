@@ -19,6 +19,7 @@ export INSTALL_REGISTRY_USERNAME=<사설 레지스트리 접속 ID>
 export INSTALL_REGISTRY_PASSWORD=<사설 레지스트리 접속 비밀번호>
 export INSTALL_REGISTRY_HOSTNAME=<사설 레지스트리 접속 FQDN>
 export TAP_VERSION=1.4.2
+export INSTALL_REPO=tanzu-application-platform
 export VERSION=1.9.5
 ```
 > **_NOTE:_** 위 환경변수의 버전은 빌드 서비스의 버전을 의미합니다. TAP 패키지와 함께 설치된 빌드 서비스 버전을 참고하여 지정합니다. 여기서는 TAP 1.4.2 버전을 기준으로 빌드서비스 1.9.5를 사용하기 때문에 이 버전으로 지정하였습니다.
@@ -47,40 +48,53 @@ kubectl create ns tap-install
 ```
 
 ### 2) TAP 설치를 위한 레지스트리 및 패키지 추가
-#### a. 레지스트리 시크릿 추가
+
+
+#### a. tap-packages을 실습자의 환경의 image registry로 copy
+```cmd
+imgpkg copy -b registry.tanzu.vmware.com/tanzu-application-platform/tap-packages:${TAP_VERSION} --to-repo ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/tap-packages
+```
+
+
+#### b. 레지스트리 시크릿 추가
 ```cmd
 tanzu secret registry add tap-registry --username ${INSTALL_REGISTRY_USERNAME} --password ${INSTALL_REGISTRY_PASSWORD} --server ${INSTALL_REGISTRY_HOSTNAME} --export-to-all-namespaces --yes --namespace tap-install 
 ```
 
-#### b. 패키지 레지스트리 추가
+#### c. 패키지 레지스트리 추가
 ```cmd
-tanzu package repository add tanzu-tap-repository --url ${INSTALL_REGISTRY_HOSTNAME}/tanzu-application-platform/tap-packages:${TAP_VERSION} --namespace tap-install
+tanzu package repository add tanzu-tap-repository --url ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/tap-packages:${TAP_VERSION} --namespace tap-install
 ```
 
-#### c. 패키지 레지스트리 확인
+#### d. 패키지 레지스트리 확인
 설치된 패키지 레지스트리의 status를 확인합니다. Reconcile succeed를 확인 후 다음 단계로 넘어갑니다.
 ```cmd
 tanzu package repository get tanzu-tap-repository --namespace tap-install
 ```
 
-#### d. 설치 가능한 패키지 목록 확인
+#### e. 설치 가능한 패키지 목록 확인
 ```cmd
 tanzu package available list --namespace tap-install 
 ```
 
-#### e. TAP 패키지와 함께 설치할 수 있는 패키지 및 버전 확인
+#### f. TAP 패키지와 함께 설치할 수 있는 패키지 및 버전 확인
 ```cmd
 tanzu package available get tap.tanzu.vmware.com/${TAP_VERSION} --values-schema --namespace tap-install 
 ```
 
 ### 3) 빌드 서비스를 위한 레지스트리 및 패키지 추가
 
-#### a. 패키지 레지스트리 추가
+#### a. Tanzu Build Service full dependencies package을 실습자의 환경의 image registry로 copy
+```cmd
+imgpkg copy -b registry.tanzu.vmware.com/build-service/full-tbs-deps-package-repo:$VERSION --to-repo ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/full-tbs-deps-package-repo
+```
+
+#### b. 패키지 레지스트리 추가
 ```cmd
 tanzu package repository add tbs-full-deps-repository --url ${INSTALL_REGISTRY_HOSTNAME}/tanzu-application-platform/full-tbs-deps-package-repo:$VERSION --namespace tap-install
 ```
 
-#### b. 패키지 레지스트리 확인
+#### c. 패키지 레지스트리 확인
 ```cmd
 tanzu package repository get tbs-full-deps-repository --namespace tap-install
 ```
