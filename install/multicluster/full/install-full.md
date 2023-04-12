@@ -110,7 +110,7 @@ full 프로파일을 가지는 TAP를 설치하기 위해 이 [YAML 파일 템�
 ### 5) TAP 설치를 위한 환경 구성
 #### a. 와일드카드 인증서 생성 - TODO
 앱에서 사용할 TLS TLS 인증서 및 키를 secret으로 생성합니다.
-[시크릿 파일 템플릿](./tap-gui-tls-cert.yaml)을 참고하여 tap-gui-tls-cert.yaml 파일을 생성하고, 시크릿을 생성합니다.
+[시크릿 파일 템플릿](./contour-tls-delegation-secret.yaml)을 참고하여 contour-tls-delegation-secret.yaml 파일을 생성하고, 시크릿을 생성합니다.
 tap-wildcard-cert
 ```
 $ k create ns tap-gui 
