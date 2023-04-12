@@ -12,6 +12,9 @@ shared:
     bfWeEus869PU/3ijqU4rVB4MYpEqavnQrJHG/U5eT1dItY+fCfI=
     -----END CERTIFICATE-----
 
+supply_chain: basic
+
+
 contour:
   envoy:
     service:
@@ -21,13 +24,16 @@ cnrs:
   domain_name: run.${TAP_INGRESS_DOMAIN}
   domain_template: "{{.Name}}-{{.Namespace}}.{{.Domain}}"
   default_tls_secret: kube-system/tap-wildcard-cert
+  ingress:
+    external:
+      namespace: tanzu-system-ingress
 
 appliveview_connector:
   backend:
     ingressEnabled: true # true for multi cluster
     host: appliveview.${TAP_INGRESS_DOMAIN}
 
-package_overlays:
-- name: cnrs
-  secrets:
-  - name: overlay-cnrs
+#package_overlays:
+#- name: cnrs
+#  secrets:
+#  - name: overlay-cnrs
