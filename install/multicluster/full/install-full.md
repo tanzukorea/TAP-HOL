@@ -161,7 +161,7 @@ kubectl get secret metadata-store-read-write-client -n metadata-store -o jsonpat
   ```
 * run 클러스터에서 RUN_CLUSTER_URL 변수 값 획득
   ```cmd
-  RUN_CLUSTER_URL=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server
+  RUN_CLUSTER_URL=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
 * run 클러스터에서 RUN_CLUSTER_TOKEN 변수 값 획득
   ```cmd
   RUN_CLUSTER_TOKEN=$(kubectl -n tap-gui get secret $(kubectl -n tap-gui get sa tap-gui-viewer -o=json | jq -r '.secrets[0].name') -o=json | jq -r '.data["token"]' | base64 --decode) 
