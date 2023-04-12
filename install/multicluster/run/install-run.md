@@ -77,6 +77,12 @@ run 프로파일을 가지는 TAP를 설치하기 위해 이 [YAML 파일 템플
 |---|---|
 |TAP_INGRESS_DOMAIN|TAP에서 사용할 Ingress Domain의 FQDN|
 
+#### b. 멀티클러스터 리소스 조회 권한 부여
+TAP GUI에서 build 클러스터와 run 클러스터의 리소스들을 접속하기 위한 권한을 부여합니다. [rbac 파일 템플릿](./tap-gui-viewer-service-account-rbac.yaml)을 참고하여 build 클러스터와 run 클러스터에 각각 접속하여 다음 명령어를 수행합니다.
+```cmd
+kubectl apply -f tap-gui-viewer-service-account-rbac.yaml 
+```
+
 ### 5) TAP 설치
 #### a. TAP 설치
 다음 명령어를 사용하여 TAP 패키지를 설치합니다. tap-values.yaml 파일은 위의 4)번 단계에서 생성한 파일입니다.

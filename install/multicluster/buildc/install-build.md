@@ -115,7 +115,14 @@ export AUTH_TOKEN=$(kubectl get secret -n metadata-store metadata-store-read-wri
 kubectl apply -f metadata-store-secrets.yaml
 ```
 
-#### c. TAP 설치
+#### c. 멀티클러스터 리소스 조회 권한 부여
+TAP GUI에서 build 클러스터와 run 클러스터의 리소스들을 접속하기 위한 권한을 부여합니다. [rbac 파일 템플릿](./tap-gui-viewer-service-account-rbac.yaml)을 참고하여 build 클러스터와 run 클러스터에 각각 접속하여 다음 명령어를 수행합니다.
+```cmd
+kubectl apply -f tap-gui-viewer-service-account-rbac.yaml 
+```
+
+
+#### d. TAP 설치
 다음 명령어를 사용하여 TAP 패키지를 설치합니다. tap-values.yaml 파일은 위의 4)번 단계에서 생성한 파일입니다.
 ```
 tanzu package install tap -p tap.tanzu.vmware.com -v $TAP_VERSION --values-file tap-values.yaml -n tap-install
