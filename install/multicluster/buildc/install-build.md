@@ -135,7 +135,7 @@ tanzu package installed list -n tap-install
 ### 7) 빌드 서비스 디펜던시 설치
 다음 명령어를 사용하여 빌드 서비스 디펜던시 패키지를 설치합니다.
 ```
-$ tanzu package install full-tbs-deps -p full-tbs-deps.tanzu.vmware.com -v $VERSION -n tap-install
+tanzu package install full-tbs-deps -p full-tbs-deps.tanzu.vmware.com -v $VERSION -n tap-install
 ```
 
 ### 8) TAP 및 빌드 서비스 디펜던시 설치 확인

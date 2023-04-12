@@ -91,7 +91,7 @@ tanzu package installed update tap -p tap.tanzu.vmware.com -v $TAP_VERSION --val
 
 #### b. TLS 인증키 등록
 앱에서 사용할 TLS TLS 인증서 및 키를 secret으로 생성합니다.
-[시크릿 파일 템플릿](./contour-tls-delegation-secret.yaml)을 참고하여 contour-tls-delegation-secret.yaml 파일을 생성하고, 시크릿을 생성합니다.
+[시크릿 파일 템플릿](../full/contour-tls-delegation-secret.yaml)을 참고하여 contour-tls-delegation-secret.yaml 파일을 생성하고, 시크릿을 생성합니다.
 ```cmd
 kubectl apply -f ./contour-tls-delegation-secret.yaml
 ```
