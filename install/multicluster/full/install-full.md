@@ -185,6 +185,17 @@ kubectl get secret metadata-store-read-write-client -n metadata-store -o jsonpat
   ```cmd
   RUN_CLUSTER_TOKEN=$(kubectl -n tap-gui get secret tap-gui-viewer -o=json | jq -r '.data["token"]' | base64 --decode)
   ```
+  * full 클러스터에서 FULL_CLUSTER_URL 변수 값 획득
+  ```cmd
+  FULL_CLUSTER_URL=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
+* run 클러스터에서 FULL_CLUSTER_TOKEN 변수 값 획득
+  ```cmd
+  FULL_CLUSTER_TOKEN=$(kubectl -n tap-gui get secret $(kubectl -n tap-gui get sa tap-gui-viewer -o=json | jq -r '.secrets[0].name') -o=json | jq -r '.data["token"]' | base64 --decode) 
+  ```
+  쿠버네티스 버전이 1.24 이상이라면 아래 명령어로 변수 값을 획득합니다.
+  ```cmd
+  FULL_CLUSTER_TOKEN=$(kubectl -n tap-gui get secret tap-gui-viewer -o=json | jq -r '.data["token"]' | base64 --decode)
+  ```
 
 #### e. Ingress Domain의 인증서 복사
 shared.ca_cert_data에  Ingress Domain의 인증서를 지정합니다.
