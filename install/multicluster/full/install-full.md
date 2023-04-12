@@ -129,7 +129,22 @@ TAP GUI에서 build 클러스터와 run 클러스터의 리소스들을 접속�
 kubectl apply -f tap-gui-viewer-service-account-rbac.yaml 
 ```
 
-#### d. Metadata Store를 위한 인증 설정
+#### d. tap-gui-viewer 시크릿 생성
+```cmd
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tap-gui-viewer
+  namespace: tap-gui
+  annotations:
+    kubernetes.io/service-account.name: tap-gui-viewer
+type: kubernetes.io/service-account-token
+EOF
+```
+
+
+#### e. Metadata Store를 위한 인증 설정
 Metadata Store를 위한 인증 설정을 위해 네임스페이스를 생성합니다.
 ```cmd
 kubectl create ns metadata-store 

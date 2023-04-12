@@ -99,3 +99,8 @@ tap_gui:
           authProvider: serviceAccount
           serviceAccountToken: "RUN_CLUSTER_TOKEN"
           skipTLSVerify: true
+        - url: FULL_CLUSTER_URL
+          name: full
+          authProvider: serviceAccount
+          serviceAccountToken: "FULL_CLUSTER_TOKEN"
+          skipTLSVerify: true
